@@ -1,0 +1,69 @@
+.white{
+    background-color: white;
+    
+}
+
+.black{
+    background-color: grey;
+    
+}
+
+#board{
+
+    border: solid black 5px;
+    margin-top: 1%;
+    margin-left: 1%;
+    height: 65vh;
+    width: 65vh;
+   
+
+}
+
+td{
+    max-width:50px;
+    max-height:50px;
+    text-align: center;
+    position: relative;
+    
+   
+}
+
+body{
+
+   margin: 0;
+   height: 100vh;
+}
+
+/* .table-div{
+    background-color: aquamarine;
+} */
+
+/* .left-partition{
+    background-color: #d3d3d3;
+    margin-left: 1%;
+    height: 100%;
+} */
+
+*{
+
+    margin: 0;
+    padding: 0;
+}
+
+#piece{
+    
+    z-index: 999;
+}
+
+img{
+
+    height: 40px;
+    width: 35px;
+    position: absolute;
+    margin-left: -16px;
+    margin-top: 16px;
+}
+
+.white:hover, .black:hover {
+    box-shadow: inset  0 0 40px rgb(8, 1, 0); 
+  }
