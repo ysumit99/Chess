@@ -5,7 +5,7 @@ let moveCount = 0; //To keep track of whose move it is
 
 
 /* Moving a piece is a two step process => select a valid piece and then move it to a valid tile */
-let selectedTiles = []; //This helps in first process.
+let selectedTiles = []; //This helps in first step.
 
 for(let i = 0; i < board.length; i++)
     board[i] = new Array(8);
@@ -71,6 +71,8 @@ let printBoard = () => {
     for(rank of board)
         for(file of rank )
             console.log("piece = " + file);
+
+    
 
 }
 
@@ -275,6 +277,166 @@ let resetHighLight = () => {
     $('td').css("box-shadow", "");
     $('td').css("border", "");
 }
+
+/* Highlight Valid selection (Player doesn't touch opponent's piece ) */
+let validSelection = (tile) => {
+    
+    let selectedTile = document.getElementById(`${tile}`);
+    
+    //valid so green border and shadow
+    selectedTile.style.boxShadow = "inset 0 0 40px  rgb(193, 231, 56)";
+    selectedTile.style.border = "solid green 1px";
+    
+    
+
+}
+
+/* HighLight Invalid selection (Player tries to touch opponent's piece ) */
+let invalidSelection = (tile) => {
+
+    let selectedTile = document.getElementById(`${tile}`);
+    
+    //Invalid so red box-shadow
+    selectedTile.style.boxShadow = "inset 0 0 40px rgb(235, 42, 42)";
+  
+    
+}
+
+
+/* get Tile status */
+let getTileStatus = (tile) => {
+    //console.log("inside getTilestatus =====> tile = " + tile);
+
+    let status = "";
+
+    let selectedTile = document.getElementById(`${tile}`);
+
+    if(selectedTile.style.border == "")
+        status = "unselected";
+    else if(selectedTile.style.border == "1px solid rgb(0, 0, 255)")
+        status = "validMoveTile";
+
+        console.log("Tile status =====> " + status);
+
+    return status;
+
+}
+
+/* get svg location */
+let SVGLocation = (row, col) => {
+
+    let location = "";
+
+    switch(board[row][col]){
+
+
+        case "WP":
+                   
+                    location = "./images/chess-pawn-white.svg";
+                    break;
+
+        case "BP":
+                    location = "./images/chess-pawn-black.svg";
+                    break;
+
+        case "WR":
+                    location = "./images/chess-rook-white.svg";
+                    break;
+
+        case "BR":
+                    location = "./images/chess-rook-black.svg";
+                    break;
+        case "WN":
+                    location = "./images/chess-knight-white.svg";
+                    break;
+
+        case "BN":
+                    location = "./images/chess-knight-black.svg";
+                    break;
+
+        case "WB":
+                    location = "./images/chess-bishop-white.svg";
+                    break;
+
+        case "BB":
+                    location = "./images/chess-bishop-black.svg";
+                    break;
+
+        case "WQ":
+                    location = "./images/chess-queen-white.svg";
+                    break;
+        case "BQ":
+                    location = "./images/chess-queen-black.svg";
+                    break;
+
+        case "WK":
+                    location = "./images/chess-king-white.svg";
+                    break;
+
+        case "BK":
+                    location = "./images/chess-king-black.svg";
+                    break;
+        case "--":
+                    location = "Empty tile!";
+                    break;
+
+        default: 
+                console.log("Piece Not Found!");
+
+    }
+
+    return location;
+}
+/* Update Board */
+let updateBoard = (initialTile, finalTile) => {
+
+    console.log("==========inside updateBoard function ==================");
+
+        let row1 = initialTile.rowIndex, col1 = initialTile.colIndex;
+        let row2 = finalTile.rowIndex, col2 = finalTile.colIndex;
+
+        board[row2][col2] = board[row1][col1]; //file tile updated
+        console.log("final tile after moving the piece => " + board[row2][col2]);
+
+        board[row1][col1] = "--";//initial tile is empty
+        console.log("initial tile after moving => " + board[row1][col1]);
+
+
+        let rank1 = getRank(`${row1}`);
+        let rank2 = getRank(`${row2}`);
+    
+        
+        let file1 = getFile(`${col1}`);
+        let file2 = getFile(`${col2}`);
+        
+        //get the updated SVG for piece on finalTile
+        let location = SVGLocation(row2, col2);
+        
+        console.log("upadted piece svg location => " + location);
+
+        //Move the piece to final tile
+        $(`#${file2}` + `${rank2}`).html(`<img src = '${location}' alt = "chess piece" />`);
+
+        //empty the initial tile
+        $(`#${file1}` + `${rank1}`).html("");
+
+         
+    console.log("==========end of updateBoard function ==================");
+
+    return;
+}
+
+/* Add to move history */
+let addToMoveHistory = (tile, piece) => {
+
+    if(moveCount % 2 == 0)
+        $('#history-container').append(`<span class="badge badge-pill badge-light">${piece+tile}</span> : `);
+    else    
+    $('#history-container').append(`<span class="badge badge-pill badge-dark">${piece+tile}</span><br />`);
+
+}
+
+
     /** Valid Moves for pieces 
     * 
     * Use board array to check the current board configuration,
@@ -357,6 +519,7 @@ let pawnValidMoves = (rowIndex,colIndex,color) => {
         return validTiles;
 }
 
+//Exceution starts from here
 resetBoard();
 printBoard();
 
@@ -367,11 +530,15 @@ printBoard();
     /** Highlight tiles and show valid moves  */
     $('td').click(function(){
 
+        let tile = $(this)[0].id;
+        const tileStatus = getTileStatus(tile); 
+
+        console.log("tileStatus ======= > " + tileStatus);
             
             if($(this).css('border') == '') //unselected tile
             {
+
                 
-                let tile = $(this)[0].id;
                 console.log("selected tile = " + tile);
             
                 let colIndex = fileIndex(tile[0]);
@@ -383,29 +550,7 @@ printBoard();
                 console.log("Piece at the given position => " + board[rowIndex][colIndex]);
                 //alert("Piece at the given position => " + board[rowIndex][colIndex]);
             
-                /**
-                 *      Possible transitions to consider
-                 *    ========================================
-                 * 
-                 *    If the selected tile has no piece on it
-                 *           => do nothing (maybe show the tile coordinates)
-                 *    else
-                 *      If the selected piece belongs to the the current player
-                 *          => highlight all the possible valid moves in blue, and highlight currently selected tile in green
-                    *      If the player moves to one of the highlighted tiles 
-                    *          => add this move to the move history. now switch the turn to the opponent!
-                    *      Else
-                    *          => disallow the movement by showing disabled icon!
-                    *   Else if selected piece belongs to opponent 
-                    *       => highlight in red
-                *              
-                *      
-                * 
-                *     
-                *       
-                */
-            
-            
+              
                 //Remove shadow and border from previously selected tile
                 resetHighLight();
             
@@ -418,7 +563,7 @@ printBoard();
                         $(this).css("box-shadow","inset  0 0 40px rgb(193, 231, 56)");
             
                     }
-                else
+                else // the selected tile has some piece
                 {
             
                     //If white's move
@@ -429,10 +574,9 @@ printBoard();
                         //selected piece belongs to white
                         if(board[rowIndex][colIndex][0] == 'W') // A valid tile selected
                             {
-                                //A valid tile is selected
-                                $(this).css("box-shadow","inset 0 0 40px  rgb(193, 231, 56)");
-                                $(this).css("border", "solid green 1px");
                                 
+                                validSelection(tile);
+                               
                                 //this will be useful when moving the piece;
                                 selectedTiles.push(tile);
 
@@ -447,29 +591,32 @@ printBoard();
             
                             }
                         else 
-                            $(this).css("box-shadow","inset 0 0 40px rgb(235, 42, 42)"); //opponent's piece
+                            invalidSelection(tile);//opponent's piece
                     }
                     else //black's move
                     {
-            
+
                         //selected piece belongs to black
                         if(board[rowIndex][colIndex][0] == 'B') // A valid tile selected
                         {
                             //A valid tile is selected
-                            $(this).css("box-shadow","inset 0 0 40px  rgb(193, 231, 56)");
-                            $(this).css("border", "solid green 1px");
+                            validSelection(tile);
                             
-                                //if(piece == Black Pawn)
-                                if(board[rowIndex][colIndex] == "BP")
-                                {
-                                    let validTiles = pawnValidMoves(rowIndex, colIndex, "B");
-                                    highlightValidTiles(validTiles);
-            
-                                }
+                             //this will be useful when moving the piece;
+                             selectedTiles.push(tile);
+
+                            
+                            //if(piece == Black Pawn)
+                            if(board[rowIndex][colIndex] == "BP")
+                            {
+                                let validTiles = pawnValidMoves(rowIndex, colIndex, "B");
+                                highlightValidTiles(validTiles);
+        
+                            }
             
                         }
                         else
-                            $(this).css("box-shadow","inset  0 0 40px rgb(235, 42, 42)"); //opponent's piece
+                            invalidSelection(tile);//opponent's piece
                     }
                 }
             
@@ -481,22 +628,58 @@ printBoard();
             {
                 //alert("this is a valid move! Now actually move the piece");
 
-                let thisTile = $(this)[0].id;
+                let thisTile = tile;
                 let selectedTile = selectedTiles[0];
-                
+
                 //move piece from previously selectedTile to this tile
                 console.log("selectedTile = " + selectedTile + " | thisTile = " + thisTile);
 
                 
 
-                //change board configuration => this should have it's own method
-                let colIndex = fileIndex(selectedTile[0]);
-                let rowIndex = rankIndex(selectedTile[1]);
-                //to be continued from here.....
+                /* update board configuration */
+
+                    //get index for selectedTile
+                    let selectedTileColIndex = fileIndex(selectedTile[0]);
+                    let selectedTileRowIndex = rankIndex(selectedTile[1]);
+
+                    console.log("index for selectedTile = " + selectedTileRowIndex + ", " + selectedTileColIndex);
+
+                    //get index for this tile
+                    let thisTileColIndex = fileIndex(thisTile[0]);
+                    let thisTileRowIndex = rankIndex(thisTile[1]);
+
+                    console.log("index for thisTile = " + thisTileRowIndex + ", " + thisTileColIndex);
+
+                    //piece selected
+                    let piece = board[selectedTileRowIndex][selectedTileColIndex][1];
+
+                    let initialTile = {"rowIndex":selectedTileRowIndex, "colIndex":selectedTileColIndex};//piece to be moved
+                    let finalTile = {"rowIndex":thisTileRowIndex, "colIndex":thisTileColIndex};//move to this tile
+               
+                //this updates board array and page
+                updateBoard(initialTile, finalTile);
+                resetHighLight();
                 
+                
+                
+                //update the move history
+                piece = (piece == "P") ? "" : piece; //Algebraic notation ignores Pawn
 
+                addToMoveHistory(thisTile, piece);
+                
+                
+                //reprint the updated Board!
+                printBoard();
 
+                //update moveCount
+                moveCount++;
 
+                //empty selectedTiles
+                selectedTiles.length = 0;
+
+               
+
+              
             }
            
             // else if($(this)[0].id == selectedTiles[0])
