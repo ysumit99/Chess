@@ -7,6 +7,7 @@
 <img src = "./images/chess-solid.svg" height = "200px" width = "200px">
 
 
+## Deployed Application
 
 [Have a look at the MVP](https://compassionate-shirley-1ed3ee.netlify.com) 
 
