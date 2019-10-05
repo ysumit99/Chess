@@ -30,10 +30,8 @@ printBoard();
 
         let tile = $(this)[0].id;
         const tileStatus = getTileStatus(tile); 
-
-        console.log("tileStatus ======= > " + tileStatus);
-            
-            if($(this).css('border') == '') //unselected tile
+     
+            if(tileStatus == "unselected") //unselected tile
             {
 
                 
@@ -122,7 +120,7 @@ printBoard();
             
         
             }
-            else if($(this).css("border") == '1px solid rgb(0, 0, 255)')//one of the validMoves tiles is selected
+            else if(tileStatus == "validMoveTile")//one of the validMoves tiles is selected
             {
                 //alert("this is a valid move! Now actually move the piece");
 
@@ -180,28 +178,7 @@ printBoard();
               
             }
            
-            // else if($(this)[0].id == selectedTiles[0])
-            // {
-            //     selectedTiles.length = 0;
-            //     resetHighLight();
-            // }
-            // else{
-                
-            //     console.log("debug => " + $(this)[0].id);
-            //     selectedTiles.length = 0;
-            //     resetHighLight();
-
-            //     //alert("Now the piece has to be moved!");
-            //     console.log($(this)[0]);
-
-            //     //alert($(this).css('box-shadow'));
-            //     for(tile in selectedTiles)
-            //         console.log(" => " + selectedTiles[tile]);
-
-            // }
             
-            //console.log("=> bjsdfj => " + selectedTiles[0]);
-
     
 
     })
