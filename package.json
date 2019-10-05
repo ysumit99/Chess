@@ -1,0 +1,33 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "A chess game in JavaScript",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysumit99/Chess.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "mocha",
+    "chai",
+    "jQuery",
+    "Node"
+  ],
+  "author": "Sumit Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ysumit99/Chess/issues"
+  },
+  "homepage": "https://github.com/ysumit99/Chess#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1"
+  }
+}
