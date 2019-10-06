@@ -77,13 +77,21 @@ printBoard();
                                 selectedTiles.push(tile);
 
                                 
-                                //if(piece == White Pawn)
+                                //piece == White Pawn
                                 if(board[rowIndex][colIndex] == "WP")
                                 {
                                     let validTiles = pawnValidMoves(rowIndex, colIndex, "W");
                                     highlightValidTiles(validTiles);
             
                                 }
+                                else if(board[rowIndex][colIndex] == "WN")/*piece == White Knight */{
+                                    
+                                    let validTiles = knightValidMoves(rowIndex, colIndex, "W");
+                                    console.log("validTiles for Knight => " + validTiles);
+                                    
+                                    highlightValidTiles(validTiles); 
+                                }
+                                    
             
                             }
                         else 

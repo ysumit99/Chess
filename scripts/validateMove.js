@@ -80,3 +80,67 @@ let pawnValidMoves = (rowIndex,colIndex,color) => {
 
     return validTiles;
 }
+
+//Knight ValidMoves
+/**
+ * Knight can jump over pieces, so no need to check blocking pieces like the way we did for pawns
+ */
+let knightValidMoves = (rowIndex, colIndex, color) => {
+
+    let validTiles = [];
+    
+    console.log("rowIndex ===> " + rowIndex + " | colIndex ===> " + colIndex);
+    try {
+            if(!(rowIndex < 0 || rowIndex > 7 || colIndex < 0 || colIndex > 7))
+            {
+                /** There are 8 possible moves for Knight. The 4 pairs are as followed  */
+
+                //top half moves
+                if(isValidTile(rowIndex+2) && isValidTile(colIndex+1))
+                    if(board[rowIndex+2][colIndex+1]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex+2}`, "colIndex":`${colIndex+1}`});
+
+                if(isValidTile(rowIndex+2) && isValidTile(colIndex-1))
+                    if(board[rowIndex+2][colIndex-1]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex+2}`, "colIndex":`${colIndex-1}`});
+                
+                if(isValidTile(rowIndex+1) && isValidTile(colIndex+2))
+                    if(board[rowIndex+1][colIndex+2]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex+1}`, "colIndex":`${colIndex+2}`});
+
+                if(isValidTile(rowIndex+1) && isValidTile(colIndex-2))
+                    if(board[rowIndex+1][colIndex-2]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex+1}`, "colIndex":`${colIndex-2}`});
+
+                //bottom half moves
+                if(isValidTile(rowIndex-2) && isValidTile(colIndex+1))
+                    if(board[rowIndex-2][colIndex+1]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex-2}`, "colIndex":`${colIndex+1}`});
+
+                if(isValidTile(rowIndex-2) && isValidTile(colIndex-1))
+                    if(board[rowIndex-2][colIndex-1]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex-2}`, "colIndex":`${colIndex-1}`});
+
+                if(isValidTile(rowIndex-1) && isValidTile(colIndex+2))
+                    if(board[rowIndex-1][colIndex+2]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex+2}`});
+
+                if(isValidTile(rowIndex-1) && isValidTile(colIndex-2))
+                    if(board[rowIndex-1][colIndex-2]=="--")
+                        validTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex-2}`});
+
+            }
+      } catch (e) {
+        
+        if (e.name != 'SyntaxError') {
+          throw "Selected Tile is out of bound!";
+        }
+    }
+    
+
+   
+    console.log(validTiles.length);
+   return validTiles;
+   
+
+}

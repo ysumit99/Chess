@@ -233,3 +233,15 @@ let SVGLocation = (row, col) => {
 
     return location;
 }
+
+/* Check index range */
+let isValidTile = (index) => {
+
+    let isValid = true;
+
+    if(index < 0 || index > 7)
+        isValid = false;
+
+    return isValid;
+
+}
