@@ -31,7 +31,7 @@ printBoard();
         let tile = $(this)[0].id;
         const tileStatus = getTileStatus(tile); 
      
-            if(tileStatus == "unselected") //unselected tile
+            if(tileStatus == "unselectedTile") //unselected tile
             {
 
                 
@@ -88,7 +88,7 @@ printBoard();
                                     
                                     let validTiles = knightValidMoves(rowIndex, colIndex, "W");
                                     console.log("validTiles for Knight => " + validTiles);
-                                    
+
                                     highlightValidTiles(validTiles); 
                                 }
                                     
@@ -116,6 +116,13 @@ printBoard();
                                 let validTiles = pawnValidMoves(rowIndex, colIndex, "B");
                                 highlightValidTiles(validTiles);
         
+                            }
+                            else if(board[rowIndex][colIndex] == "BN")/*piece == Black Knight */{
+                                    
+                                let validTiles = knightValidMoves(rowIndex, colIndex, "W");
+                                console.log("validTiles for Knight => " + validTiles);
+
+                                highlightValidTiles(validTiles); 
                             }
             
                         }
@@ -184,6 +191,11 @@ printBoard();
                
 
               
+            }
+            else if(tileStatus == "selectedTile")
+            {
+                resetHighLight();
+                console.log("Trying To reset");
             }
            
             

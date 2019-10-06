@@ -111,9 +111,11 @@ let getTileStatus = (tile) => {
     let selectedTile = document.getElementById(`${tile}`);
 
     if(selectedTile.style.border == "")
-        status = "unselected";
+        status = "unselectedTile";
     else if(selectedTile.style.border == "1px solid blue")
         status = "validMoveTile";
+    else if(selectedTile.style.border == "1px solid green")
+        status = "selectedTile";
 
     console.log("Tile status =====> " + status);
 
