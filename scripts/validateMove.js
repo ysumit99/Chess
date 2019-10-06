@@ -144,3 +144,67 @@ let knightValidMoves = (rowIndex, colIndex, color) => {
    
 
 }
+
+
+//Rook ValidMoves
+/**
+ * Rook can move horizontally and vertically in straight line.
+ */
+
+ let rookValidMoves = (rowIndex, colIndex, color) => {
+
+    let validTiles = [];
+
+    try {
+            if(!(rowIndex < 0 || rowIndex > 7 || colIndex < 0 || colIndex > 7))
+            {
+                //top 
+                for(let i = rowIndex + 1; i < 8; i++)
+                    {
+                        if(board[i][colIndex] != "--")
+                            break;
+
+                        validTiles.push({"rowIndex":`${i}`, "colIndex":`${colIndex}`});
+                    }
+                
+                //bottom
+                for(let i = rowIndex - 1; i >= 0; i--)
+                {
+                    if(board[i][colIndex] != "--")
+                        break;
+
+                    validTiles.push({"rowIndex":`${i}`, "colIndex":`${colIndex}`});
+                }    
+
+                //left
+                for(let j = colIndex - 1; j >= 0; j--)
+                {
+                    if(board[rowIndex][j] != "--")
+                        break;
+
+                    validTiles.push({"rowIndex":`${rowIndex}`, "colIndex":`${j}`});
+                }
+
+                //right
+                for(let j = colIndex + 1; j < 8; j++)
+                {
+                    if(board[rowIndex][j] != "--")
+                        break;
+
+                    validTiles.push({"rowIndex":`${rowIndex}`, "colIndex":`${j}`});
+                }
+
+
+                    
+
+
+            }
+        } catch (e) {
+            
+            if (e.name != 'SyntaxError') {
+            throw "Selected Tile is out of bound!";
+            }
+        }
+
+        return validTiles;
+ }

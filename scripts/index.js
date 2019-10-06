@@ -33,8 +33,8 @@ printBoard();
      
             if(tileStatus == "unselectedTile") //unselected tile
             {
-
                 
+                selectedTiles.length = 0;
                 console.log("selected tile = " + tile);
             
                 let colIndex = fileIndex(tile[0]);
@@ -77,19 +77,21 @@ printBoard();
                                 selectedTiles.push(tile);
 
                                 
-                                //piece == White Pawn
-                                if(board[rowIndex][colIndex] == "WP")
+                                
+                                if(board[rowIndex][colIndex] == "WP")/* piece == White Pawn */
                                 {
                                     let validTiles = pawnValidMoves(rowIndex, colIndex, "W");
                                     highlightValidTiles(validTiles);
             
-                                }
-                                else if(board[rowIndex][colIndex] == "WN")/*piece == White Knight */{
+                                }else if(board[rowIndex][colIndex] == "WN")/* piece == White Knight */{
                                     
                                     let validTiles = knightValidMoves(rowIndex, colIndex, "W");
-                                    console.log("validTiles for Knight => " + validTiles);
-
                                     highlightValidTiles(validTiles); 
+
+                                }else if(board[rowIndex][colIndex] == "WR")/* piece == White Rook */{
+
+                                    let validTiles = rookValidMoves(rowIndex, colIndex, "W");
+                                    highlightValidTiles(validTiles);
                                 }
                                     
             
@@ -110,19 +112,21 @@ printBoard();
                              selectedTiles.push(tile);
 
                             
-                            //if(piece == Black Pawn)
-                            if(board[rowIndex][colIndex] == "BP")
+                            
+                            if(board[rowIndex][colIndex] == "BP") /* if(piece == Black Pawn) */
                             {
                                 let validTiles = pawnValidMoves(rowIndex, colIndex, "B");
                                 highlightValidTiles(validTiles);
         
-                            }
-                            else if(board[rowIndex][colIndex] == "BN")/*piece == Black Knight */{
+                            }else if(board[rowIndex][colIndex] == "BN")/*piece == Black Knight */{
                                     
-                                let validTiles = knightValidMoves(rowIndex, colIndex, "W");
-                                console.log("validTiles for Knight => " + validTiles);
-
+                                let validTiles = knightValidMoves(rowIndex, colIndex, "B");
                                 highlightValidTiles(validTiles); 
+
+                            }else if(board[rowIndex][colIndex] == "BR")/* piece == Black Rook */{
+
+                                let validTiles = rookValidMoves(rowIndex, colIndex, "B");
+                                highlightValidTiles(validTiles);
                             }
             
                         }
@@ -195,7 +199,7 @@ printBoard();
             else if(tileStatus == "selectedTile")
             {
                 resetHighLight();
-                console.log("Trying To reset");
+               
             }
            
             
