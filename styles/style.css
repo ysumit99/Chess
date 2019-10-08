@@ -70,3 +70,41 @@ img{
 .white:hover, .black:hover {
     box-shadow: inset  0 0 40px rgb(8, 1, 0); 
   }
+
+
+/* Turn Indicators for White and Black */
+
+.turnContainer{
+
+    margin-top: 5%;
+}
+
+.moveContainer{
+
+    margin-top: 5%;
+}
+
+.turnWhite{
+
+    width:  60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f3e290;
+    /* box-shadow: 0px 0px 10px 10px rgb(248, 225, 19); */
+}
+
+.turnBlack{
+
+    width:  60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: grey;
+    box-shadow: 0px 0px 10px 10px rgb(112, 111, 101);
+    
+}
+
+.dummyText{
+    
+    visibility: hidden; 
+}
+
