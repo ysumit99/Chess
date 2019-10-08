@@ -11,10 +11,12 @@ let selectedTiles = []; /* This helps in first step. */
 //Exceution starts from here
 resetBoard();
 printBoard();
+turnIndicator(moveCount);
 
 /** Highlight tiles and show valid moves  */
 $("td").click(function() {
 
+ 
   let tile = $(this)[0].id;
   const tileStatus = getTileStatus(tile);
 
@@ -179,6 +181,8 @@ $("td").click(function() {
         /* prepare for next move */
         moveCount++;
         selectedTiles.length = 0;
+
+        turnIndicator(moveCount);
 
       } else if (tileStatus == "selectedTile") /* toggle selected tile */
           resetHighLight(); 

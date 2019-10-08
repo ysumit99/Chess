@@ -48,8 +48,25 @@ let invalidSelection = (tile) => {
 
     let selectedTile = document.getElementById(`${tile}`);
     
-    //Invalid so red box-shadow
-    selectedTile.style.boxShadow = "inset 0 0 40px rgb(235, 42, 42)";
-  
+    /* popup  an alert indicating opponent's piece touched! */
+    alert(`That's opponent's piece!`);
     
 }
+
+/* Turn Indicator */
+let turnIndicator = (moveCount) => {
+
+    if(moveCount % 2 == 0)
+        {
+            $('.turnBlack').css('box-shadow','');
+            $('.turnWhite').css('box-shadow', '0px 0px 10px 10px rgb(248, 225, 19)');
+            
+            
+        }else{
+
+            
+            $('.turnWhite').css('box-shadow','');
+            $('.turnBlack').css('box-shadow', '0px 0px 10px 10px rgb(112, 111, 101)');
+
+    }
+} 

@@ -88,23 +88,19 @@ img{
 
     width:  60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 10%;
     background-color: #f3e290;
-    /* box-shadow: 0px 0px 10px 10px rgb(248, 225, 19); */
+    
 }
 
 .turnBlack{
 
     width:  60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 10%;
     background-color: grey;
-    box-shadow: 0px 0px 10px 10px rgb(112, 111, 101);
+   
     
 }
 
-.dummyText{
-    
-    visibility: hidden; 
-}
 
