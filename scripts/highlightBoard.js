@@ -1,9 +1,14 @@
-/* Highlight the valid Tiles in blue */
 let highlightValidTiles = (validTiles) => {
 
     console.log("tiles to be highlighted => given below ");
      
-    for(tile of validTiles)
+    let validEmptyTiles = validTiles.validEmptyTiles;
+    let captureTiles = validTiles.captureTiles;
+
+    // console.log("capture tiles ====> " + captureTiles);
+
+    /* HighLight Empty Tiles in Blue  */
+    for(tile of validEmptyTiles)
        {
             console.log("valid Tiles coordinates => " + tile.rowIndex + ", " + tile.colIndex);
 
@@ -19,6 +24,24 @@ let highlightValidTiles = (validTiles) => {
             $(`#${id}`).css("border", "solid blue 1px");
 
        } 
+
+    /* HighLight Pieces to be captured in Red */
+    for(tile of captureTiles)
+        {
+            console.log("valid Tiles coordinates => " + tile.rowIndex + ", " + tile.colIndex);
+
+            let file = getFile(tile.colIndex);
+            let rank = getRank(tile.rowIndex);
+            let id = file+rank;
+
+            console.log("id to be updated => " + id);
+            //change box-shadow of these tiles to blue color
+
+            
+            $(`#${id}`).css("box-shadow", "inset  0 0 40px  #f13a1a");
+            $(`#${id}`).css("border", "solid red 1px");
+
+        } 
 
 
 }
@@ -70,3 +93,4 @@ let turnIndicator = (moveCount) => {
 
     }
 } 
+
