@@ -202,8 +202,8 @@ let knightValidMoves = (rowIndex, colIndex, color) => {
                 if(isValidTile(rowIndex-1) && isValidTile(colIndex+2))
                     if(board[rowIndex-1][colIndex+2]=="--")                         /* Empty Tile */
                         validTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex+2}`});
-                    else if(board[rowIndex+2][colIndex-1][0] == opponentPieceColor ) /* Opponent's piece */
-                        captureTiles.push({"rowIndex":`${rowIndex+2}`, "colIndex":`${colIndex-1}`});
+                    else if(board[rowIndex-1][colIndex+2][0] == opponentPieceColor ) /* Opponent's piece */
+                        captureTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex+2}`});
 
                 if(isValidTile(rowIndex-1) && isValidTile(colIndex-2))
                     if(board[rowIndex-1][colIndex-2]=="--")                         /* Empty Tile */
@@ -648,48 +648,48 @@ let knightValidMoves = (rowIndex, colIndex, color) => {
          * by capturing opponent's piece.
          */
         let validTiles = [], captureTiles = [];
-
+        
 
         try {
             
             /* top tile */
             if(isValidTile(rowIndex+1))
-                if(board[rowIndex+1][colIndex] == "--")
+                if(board[rowIndex+1][colIndex] == "--" && !isKingChecked( {"rowIndex":rowIndex+1, "colIndex":colIndex}, color))
                     validTiles.push({"rowIndex":`${rowIndex+1}`, "colIndex":`${colIndex}`});
 
             /* bottom tile */
             if(isValidTile(rowIndex-1))
-                if(board[rowIndex-1][colIndex] == "--")
+                if(board[rowIndex-1][colIndex] == "--" && !isKingChecked({"rowIndex":rowIndex-1, "colIndex":colIndex}, color))
                     validTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex}`});
             
             /* left tile */
             if(isValidTile(colIndex-1))
-                if(board[rowIndex][colIndex-1] == "--")
+                if(board[rowIndex][colIndex-1] == "--" && !isKingChecked({"rowIndex":rowIndex, "colIndex":colIndex-1}, color))
                     validTiles.push({"rowIndex":`${rowIndex}`, "colIndex": `${colIndex-1}`});
             
             /* right tile */
             if(isValidTile(colIndex+1))
-                if(board[rowIndex][colIndex+1] == "--")
+                if(board[rowIndex][colIndex+1] == "--" && !isKingChecked({"rowIndex":rowIndex, "colIndex":colIndex+1}, color))
                     validTiles.push({"rowIndex":`${rowIndex}`, "colIndex":`${colIndex+1}`});
             
             /* top left diagonal */
             if(isValidTile(rowIndex+1) && isValidTile(colIndex-1))
-                if(board[rowIndex+1][colIndex-1] == "--")
+                if(board[rowIndex+1][colIndex-1] == "--" && !isKingChecked({"rowIndex":rowIndex+1, "colIndex":colIndex-1}, color))
                     validTiles.push({"rowIndex":`${rowIndex+1}`, "colIndex":`${colIndex-1}`});
             
             /* bottom left diagonal */
             if(isValidTile(rowIndex-1) && isValidTile(colIndex-1))
-                if(board[rowIndex-1][colIndex-1] == "--")
+                if(board[rowIndex-1][colIndex-1] == "--" && !isKingChecked({"rowIndex":rowIndex-1, "colIndex":colIndex-1}, color))
                     validTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex-1}`});
 
             /* top right diagonal */
             if(isValidTile(rowIndex+1) && isValidTile(colIndex+1))
-                if(board[rowIndex+1][colIndex+1] == "--")
+                if(board[rowIndex+1][colIndex+1] == "--" && !isKingChecked({"rowIndex":rowIndex+1, "colIndex":colIndex+1}, color))
                     validTiles.push({"rowIndex":`${rowIndex+1}`, "colIndex":`${colIndex+1}`});
 
             /* bottom right diagonal */
             if(isValidTile(rowIndex-1) && isValidTile(colIndex+1))
-                if(board[rowIndex-1][colIndex+1] == "--")
+                if(board[rowIndex-1][colIndex+1] == "--" && !isKingChecked({"rowIndex":rowIndex-1, "colIndex":colIndex+1}, color))
                     validTiles.push({"rowIndex":`${rowIndex-1}`, "colIndex":`${colIndex+1}`});
 
         } catch (error) {
@@ -707,67 +707,106 @@ let knightValidMoves = (rowIndex, colIndex, color) => {
  
   /**
    * Check if the King can come under check by movement of other pieces of the same player (called as discovery in normal chess terms)
-   * This function needs to be called for every piece movement! `tile` parameter is the coordinates of the king `color` indicates the White/Black king
+   * This function needs to be called for every piece movement! `validKingTile` parameter is the coordinates of the valid king tile likewise `color` indicates king's color.
    */
 
-   /**
-    * 
-    * @param {*} tile 
-    */
+    /**
+     * 
+     * @param {*} kingTile 
+     * @param {*} color 
+     */
 
-  let isKingChecked = (tile, color) => {
+  let isKingChecked = (validKingTile, color) => {
 
     let opponentPieceColor = (color == 'W') ? 'B' : 'W';
     let isChecked = false;
+    let rowIndex = validKingTile.rowIndex;
+    let colIndex = validKingTile.colIndex;
+    console.log("rowIndex = " + rowIndex + " | colIndex = " + colIndex);
 
-    /* Check for threat from all the opponent pieces */
+    /**
+     * Check for threats from possible opponent pieces
+     */
 
-    for(let row = 0; row < 8; row++)
+    /* Tile can be attacked by Rook/Queen from Top */
+    for(let row = rowIndex + 1; row < 8; row++)
         {
-            for(let col = 0; col < 8; col++)
-            {
-                if(tile[0] === opponentPieceColor) /* Possible threat for king */
-                    {
-                        let validMoveTiles = null; // has all possible valid moves for this opponent piece(including empty tiles and capture tiles)
-
-                        switch(tile[1]){
-
-                            case 'P': validMoveTiles = pawnValidMoves(row, col, opponentPieceColor);
-                            break;
-
-                            case 'N': validMoveTiles = knightValidMoves(row, col, opponentPieceColor);
-                            break;
-
-                            case 'B': validMoveTiles = bishopValidMoves(row, col, opponentPieceColor);
-                            break;
-
-                            case 'R': validMoveTiles = rookValidMoves(row, col, opponentPieceColor);
-                            break;
-
-                            case 'Q': validMoveTiles = queenValidMoves(row, col, opponentPieceColor);
-                            break;
-
-                            case 'K': validMoveTiles = kingValidMoves(row, col, opponentPieceColor);
-                            break;
-
-                            default: console.log('This is an alien piece!');
-
-                        }
-
-                        let tilesUnderAttack = validMoveTiles.captureTiles; //tiles that can be captured
-
-
-                        for(tile of tilesUnderAttack)
-                            if(tile.rowIndex == row && tile.colIndex == col) /* If this tile is under attack => King is under check */
-                                {
-                                    isChecked = true;
-                                    break;
-                                }
-                    }
-            }
-            if(isChecked)
+            if(board[row][colIndex][0] != opponentPieceColor) /* same color so no threat */
                 break;
+            
+            if(board[row][colIndex][1] == 'R' || board[row][colIndex][1] == 'Q') 
+                {
+                    isChecked = true;
+                    return isChecked;
+                } 
+            
         }
+    
+    /* Tile can be attacked by Rook/Queen from Bottom */
+    for(let row = rowIndex - 1; row >= 0; row--)
+        {
+            if(board[row][colIndex][0] != opponentPieceColor) /* same color so no threat */
+                break;
+            
+            if(board[row][colIndex][1] == 'R' || board[row][colIndex][1] == 'Q') 
+                {
+                    isChecked = true;
+                    return isChecked;
+                } 
+            
+        }
+    
+    
+    /* Tile can be attacked by Rook/Queen from Left Side */
+    for(let col = colIndex-1; col >= 0; col--)
+    {
+        if(board[rowIndex][col][0] !== opponentPieceColor) /* same color so no threat */
+            break; 
+        
+        if(board[rowIndex][col][1] === 'R' || board[rowIndex][col][1] === 'Q')
+            {
+                isChecked = true;
+                return isChecked;
+            }
+    }
+
+    /* Tile can be attacked by Rook/Queen from Right Side */
+    for(let col = colIndex+1; col < 8; col++)
+    {
+        if(board[rowIndex][col][0] !== opponentPieceColor) /* same color so no threat */
+            break; 
+        
+        if(board[rowIndex][col][1] === 'R' || board[rowIndex][col][1] === 'Q')
+            {
+                isChecked = true;
+                return isChecked;
+            }
+    }
+
+
+
+    /* Tile can be attacked by pawn in the top-left diagonal tile */
+    if(isValidTile(rowIndex+1) && isValidTile(colIndex-1))
+        {
+            if(board[rowIndex+1][colIndex-1][0] === opponentPieceColor && board[rowIndex+1][colIndex-1][1] === 'P')
+                {
+                    isChecked = true;
+                    return isChecked;
+                }
+        }
+    
+    /* Tile can be attacked by pawn in the top-right diagonal tile */
+    if(isValidTile(rowIndex+1) && isValidTile(colIndex+1))
+        {
+            if(board[rowIndex+1][colIndex+1][0] === opponentPieceColor && board[rowIndex+1][colIndex+1][1] === 'P')
+                {
+                    isChecked = true;
+                    return isChecked;
+                }
+        }
+    
+
+    console.log("ischecked => " + isChecked);
 
     return isChecked;
 
