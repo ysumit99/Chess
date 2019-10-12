@@ -717,6 +717,7 @@ let knightValidMoves = (rowIndex, colIndex, color) => {
      */
 
   let isKingChecked = (validKingTile, color) => {
+      console.log("color of the king ==== > " + color);
 
     let opponentPieceColor = (color == 'W') ? 'B' : 'W';
     let isChecked = false;
@@ -728,85 +729,205 @@ let knightValidMoves = (rowIndex, colIndex, color) => {
      * Check for threats from possible opponent pieces
      */
 
-    /* Tile can be attacked by Rook/Queen from Top */
-    for(let row = rowIndex + 1; row < 8; row++)
-        {
-            if(board[row][colIndex][0] != opponentPieceColor) /* same color so no threat */
-                break;
-            
-            if(board[row][colIndex][1] == 'R' || board[row][colIndex][1] == 'Q') 
-                {
-                    isChecked = true;
-                    return isChecked;
-                } 
-            
-        }
+    /* Linear Attacks from Rook/Queen */
     
-    /* Tile can be attacked by Rook/Queen from Bottom */
-    for(let row = rowIndex - 1; row >= 0; row--)
-        {
-            if(board[row][colIndex][0] != opponentPieceColor) /* same color so no threat */
-                break;
-            
-            if(board[row][colIndex][1] == 'R' || board[row][colIndex][1] == 'Q') 
-                {
-                    isChecked = true;
-                    return isChecked;
-                } 
-            
-        }
-    
-    
-    /* Tile can be attacked by Rook/Queen from Left Side */
-    for(let col = colIndex-1; col >= 0; col--)
-    {
-        if(board[rowIndex][col][0] !== opponentPieceColor) /* same color so no threat */
-            break; 
-        
-        if(board[rowIndex][col][1] === 'R' || board[rowIndex][col][1] === 'Q')
+        // Attack by Rook/Queen from Top
+        for(let row = rowIndex + 1; row < 8; row++)
             {
-                isChecked = true;
-                return isChecked;
-            }
-    }
+                console.log("attack by rook/Queen top");
 
-    /* Tile can be attacked by Rook/Queen from Right Side */
-    for(let col = colIndex+1; col < 8; col++)
-    {
-        if(board[rowIndex][col][0] !== opponentPieceColor) /* same color so no threat */
-            break; 
+                if(board[row][colIndex] != "--" && board[row][colIndex][0] != opponentPieceColor) /* same color so no threat */
+                    {
+                        
+                        break;
+                    }
+                
+                if(board[row][colIndex][1] == 'R' || board[row][colIndex][1] == 'Q') 
+                    {
+                        isChecked = true;
+                        return isChecked;
+                    } 
+                
+            }
         
-        if(board[rowIndex][col][1] === 'R' || board[rowIndex][col][1] === 'Q')
+        //Attack by Rook/Queen from bottom
+        for(let row = rowIndex - 1; row >= 0; row--)
             {
-                isChecked = true;
-                return isChecked;
+                console.log("attack by rook/Queen bottom");
+                if(board[row][colIndex] != "--" && board[row][colIndex][0] != opponentPieceColor) /* same color so no threat */
+                    {
+                       
+                        break;
+                    }
+                
+                if(board[row][colIndex][1] == 'R' || board[row][colIndex][1] == 'Q') 
+                    {
+                        isChecked = true;
+                        return isChecked;
+                    } 
+                
             }
-    }
-
-
-
-    /* Tile can be attacked by pawn in the top-left diagonal tile */
-    if(isValidTile(rowIndex+1) && isValidTile(colIndex-1))
+        
+        
+        //Attack by Rook/Queen from Left
+        for(let col = colIndex-1; col >= 0; col--)
         {
-            if(board[rowIndex+1][colIndex-1][0] === opponentPieceColor && board[rowIndex+1][colIndex-1][1] === 'P')
+            console.log("attack by rook/Queen Left");
+            if(board[rowIndex][col] != "--" && board[rowIndex][col][0] !== opponentPieceColor) /* same color so no threat */
+                {
+                    
+                    break;   
+                }
+            
+            if(board[rowIndex][col][1] === 'R' || board[rowIndex][col][1] === 'Q')
                 {
                     isChecked = true;
                     return isChecked;
                 }
         }
-    
-    /* Tile can be attacked by pawn in the top-right diagonal tile */
-    if(isValidTile(rowIndex+1) && isValidTile(colIndex+1))
+
+
+        //Attacks by Rook/Queen from Right
+        for(let col = colIndex+1; col < 8; col++)
         {
-            if(board[rowIndex+1][colIndex+1][0] === opponentPieceColor && board[rowIndex+1][colIndex+1][1] === 'P')
+            console.log("attack by rook/Queen Right");
+            if(board[rowIndex][col] != "--" && board[rowIndex][col][0] !== opponentPieceColor) /* same color so no threat */
+                break; 
+            
+            if(board[rowIndex][col][1] === 'R' || board[rowIndex][col][1] === 'Q')
                 {
                     isChecked = true;
                     return isChecked;
                 }
         }
+
+
+
+    /* Diagonal Attacks by Bishops and Queen */
+
+        //top left diagonal
+        for(let row = rowIndex + 1, col = colIndex-1; row < 8 && col >= 0; row++, col--)
+        {
+            console.log("Bishop/Queen top left Diagonal");
+            
+            if(board[row][col] != "--" && board[row][col][0] != opponentPieceColor) /* same color so no threat */
+                break;
+
+            if(board[row][col][1] === 'Q' || board[row][col][1] === 'B')
+                {
+                    isChecked = true;
+                    console.log("ischecked ===> " + isChecked);
+                    return isChecked;
+                }
+            else
+                console.log(board[row][col] + " is not a threat!");
+        }
+
+        //top right diagonal
+        for(let row = rowIndex + 1, col = colIndex + 1; row < 8 && col < 8; row++, col++)
+        {
+            console.log("attack by Bishop/Queen top right diagonal");
+            if(board[row][col] != "--" && board[row][col][0] !== opponentPieceColor) /* same color so no threat */
+                break;
+
+            if(board[row][col][1] === 'Q' || board[row][col][1] === 'B')
+                {
+                    isChecked = true;
+                    return isChecked;
+                }
+        }
+
+        //bottom left diagonal
+        for(let row = rowIndex - 1, col = colIndex - 1; row >= 0 && col >= 0; row--, col--)
+        {
+            console.log("attack by Bishop/Queen bottom-left Diagonal");
+            if(board[row][col] != "--" && board[row][col][0] !== opponentPieceColor) /* same color so no threat */
+                break;
+
+            if(board[row][col][1] === 'Q' || board[row][col][1] === 'B')
+                {
+                    isChecked = true;
+                    return isChecked;
+                }
+        }
+
+        //bottom right diagonal
+        for(let row = rowIndex-1, col = colIndex+1; row >= 0 && col < 8; row--, col++)
+        {
+            console.log("attack by Bishop/Queen bottom-right diagonal");
+            if(board[row][col] != "--" && board[row][col][0] !== opponentPieceColor) /* same color so no threat */
+                break;
+
+            if(board[row][col][1] === 'Q' || board[row][col][1] === 'B')
+                {
+                    isChecked = true;
+                    return isChecked;
+                }
+        }
+
+
+
+
+    /* Attacks by pawn */
+        if(color == 'W')  //White King is being attcked
+        {
+
+            // Attack by top-left diagonal pawn
+            if(isValidTile(rowIndex+1) && isValidTile(colIndex-1))
+            {
+                console.log("attack on white king by top-left black pawn");
+                if(board[rowIndex+1][colIndex-1][0] === opponentPieceColor && board[rowIndex+1][colIndex-1][1] === 'P')
+                    {
+                        isChecked = true;
+                        return isChecked;
+                    }
+            }
+
+
+            // Attack by top-right diagonal pawn
+            if(isValidTile(rowIndex+1) && isValidTile(colIndex+1))
+            {
+                console.log("attack on white king by top-right black pawn");
+                if(board[rowIndex+1][colIndex+1][0] === opponentPieceColor && board[rowIndex+1][colIndex+1][1] === 'P')
+                    {
+                        isChecked = true;
+                        return isChecked;
+                    }
+            }
+
+        }
+        else if(color == 'B') //Black King is being attacked
+        {
+
+            // Attack by bottom-left diagonal pawn
+            if(isValidTile(rowIndex-1) && isValidTile(colIndex-1))
+            {
+                console.log("attack on black King by bottom-left diagonal white pawn");
+                if(board[rowIndex-1][colIndex-1][0] === opponentPieceColor && board[rowIndex-1][colIndex-1][1] === 'P')
+                    {
+                        isChecked = true;
+                        return isChecked;
+                    }
+            }
+
+
+            //Attack by bottom-right diagonal pawn
+            if(isValidTile(rowIndex-1) && isValidTile(colIndex+1))
+            {
+                console.log("attack on black king by bottom-right diagonal white pawn");
+                if(board[rowIndex-1][colIndex+1][0] === opponentPieceColor && board[rowIndex-1][colIndex+1][1] === 'P')
+                    {
+                        isChecked = true;
+                        return isChecked;
+                    }
+            }
+
+        }
+    
+   
     
 
-    console.log("ischecked => " + isChecked);
+    //console.log("ischecked => " + isChecked);
 
     return isChecked;
 
