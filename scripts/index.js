@@ -14,177 +14,178 @@ printBoard();
 turnIndicator(moveCount);
 
 /** Highlight tiles and show valid moves  */
-$("td").click(function() {
+$("td").click(function () {
 
- 
+
   let tile = $(this)[0].id;
+  console.log("selectedTile ===> " + tile);
   const tileStatus = getTileStatus(tile);
 
-    if (tileStatus == "unselectedTile") { /* First step in moving a tile */
+  if (tileStatus == "unselectedTile") { /* First step in moving a tile */
 
-      selectedTiles.length = 0;
-      console.log("selected tile = " + tile);
+    selectedTiles.length = 0;
+    console.log("selected tile = " + tile);
 
-      let colIndex = fileIndex(tile[0]);
-      let rowIndex = rankIndex(tile[1]);
+    let colIndex = fileIndex(tile[0]);
+    let rowIndex = rankIndex(tile[1]);
 
-      //Remove shadow and border from previously selected tile
-      resetHighLight();
+    //Remove shadow and border from previously selected tile
+    resetHighLight();
 
-      if (board[rowIndex][colIndex] == "--") /* Empty Tile */
-        highlightEmpty(tile);
-      else { /* Tile has some piece */
-        
-            if (moveCount % 2 == 0) {  /* White's Move */
-                
-                console.log("moveCount = " + moveCount);
-  
-                if (board[rowIndex][colIndex][0] == "W") { /* A valid tile selected */
-                
-                  validSelection(tile);
+    if (board[rowIndex][colIndex] == "--") /* Empty Tile */
+      highlightEmpty(tile);
+    else { /* Tile has some piece */
 
-                  //this will be useful when moving the piece;
-                  selectedTiles.push(tile);
+      if (moveCount % 2 == 0) {  /* White's Move */
 
-                  if (board[rowIndex][colIndex] == "WP") {
-                  
-                    /* piece == White Pawn */
-                    let validTiles = pawnValidMoves(rowIndex, colIndex, "W");
-                    highlightValidTiles(validTiles);
+        console.log("moveCount = " + moveCount);
 
-                  } else if (board[rowIndex][colIndex] == "WN") {
+        if (board[rowIndex][colIndex][0] == "W") { /* A valid tile selected */
 
-                    /* piece == White Knight */
-                    let validTiles = knightValidMoves(rowIndex, colIndex, "W");
-                    highlightValidTiles(validTiles);
+          validSelection(tile);
 
-                  } else if (board[rowIndex][colIndex] == "WR") {
-                    
-                    /* piece == White Rook */ 
-                    let validTiles = rookValidMoves(rowIndex, colIndex, "W");
-                    highlightValidTiles(validTiles);
+          //this will be useful when moving the piece;
+          selectedTiles.push(tile);
 
-                  } else if (board[rowIndex][colIndex] == "WB") {
-                    
-                    /* piece == White Bishop */ 
-                    let validTiles = bishopValidMoves(rowIndex, colIndex, "W");
-                    highlightValidTiles(validTiles);
+          if (board[rowIndex][colIndex] == "WP") {
 
-                  } else if (board[rowIndex][colIndex] == "WQ") {
+            /* piece == White Pawn */
+            let validTiles = pawnValidMoves(rowIndex, colIndex, "W");
+            highlightValidTiles(validTiles);
 
-                    /* piece == White Queen */ 
-                    let validTiles = queenValidMoves(rowIndex, colIndex, "W");
-                    highlightValidTiles(validTiles);
+          } else if (board[rowIndex][colIndex] == "WN") {
 
-                  } else if (board[rowIndex][colIndex] == "WK") {
+            /* piece == White Knight */
+            let validTiles = knightValidMoves(rowIndex, colIndex, "W");
+            highlightValidTiles(validTiles);
 
-                    /* piece == White King */ 
-                    let validTiles = kingValidMoves(rowIndex, colIndex, "W");
-                    highlightValidTiles(validTiles);
-                    
-                  }
-                  
-              } else invalidSelection(tile); /* opponent's piece */
+          } else if (board[rowIndex][colIndex] == "WR") {
 
-            } else { /* black's move */
+            /* piece == White Rook */
+            let validTiles = rookValidMoves(rowIndex, colIndex, "W");
+            highlightValidTiles(validTiles);
 
-                if (board[rowIndex][colIndex][0] == "B") {
+          } else if (board[rowIndex][colIndex] == "WB") {
 
-                /* A valid tile having black piece */
-                validSelection(tile);
+            /* piece == White Bishop */
+            let validTiles = bishopValidMoves(rowIndex, colIndex, "W");
+            highlightValidTiles(validTiles);
 
-                //this will be useful when moving the piece;
-                selectedTiles.push(tile);
+          } else if (board[rowIndex][colIndex] == "WQ") {
 
-                if (board[rowIndex][colIndex] == "BP") {
+            /* piece == White Queen */
+            let validTiles = queenValidMoves(rowIndex, colIndex, "W");
+            highlightValidTiles(validTiles);
 
-                  /* if(piece == Black Pawn) */
-                  let validTiles = pawnValidMoves(rowIndex, colIndex, "B");
-                  highlightValidTiles(validTiles);
+          } else if (board[rowIndex][colIndex] == "WK") {
 
-                } else if (board[rowIndex][colIndex] == "BN") {
+            /* piece == White King */
+            let validTiles = kingValidMoves(rowIndex, colIndex, "W");
+            highlightValidTiles(validTiles);
 
-                  /*piece == Black Knight */ 
-                  let validTiles = knightValidMoves(rowIndex, colIndex, "B");
-                  highlightValidTiles(validTiles);
+          }
 
-                } else if (board[rowIndex][colIndex] == "BR") {
-                  
-                  /* piece == Black Rook */ 
-                  let validTiles = rookValidMoves(rowIndex,colIndex, "B");
-                  highlightValidTiles(validTiles);
+        } else invalidSelection(tile); /* opponent's piece */
 
-                } else if (board[rowIndex][colIndex] == "BB") {
-                  
-                  /* piece == Black Bishop */ 
-                  let validTiles = bishopValidMoves(rowIndex, colIndex, "B");
-                  highlightValidTiles(validTiles);
+      } else { /* black's move */
 
-                } else if (board[rowIndex][colIndex] == "BQ") {
-                  
-                  /* piece == Black Queen */ 
-                  let validTiles = queenValidMoves(rowIndex, colIndex, "B");
-                  highlightValidTiles(validTiles);
+        if (board[rowIndex][colIndex][0] == "B") {
 
-                } else if (board[rowIndex][colIndex] == "BK") {
-                  
-                  /* piece == Black King */ 
-                  let validTiles = kingValidMoves(rowIndex, colIndex, "B");
-                  highlightValidTiles(validTiles);
+          /* A valid tile having black piece */
+          validSelection(tile);
 
-                }
+          //this will be useful when moving the piece;
+          selectedTiles.push(tile);
 
-              } else invalidSelection(tile); /* opponent's piece */
-              
-            }
-        }
-    } else if (tileStatus == "validMoveTile") { /*  If this tile is selected as second step in moving  */
-        
-        let thisTile = tile;
-        let selectedTile = selectedTiles[0];
+          if (board[rowIndex][colIndex] == "BP") {
 
-        /* get index for currently previously selected tile */
-        let selectedTileColIndex = fileIndex(selectedTile[0]);
-        let selectedTileRowIndex = rankIndex(selectedTile[1]);
+            /* if(piece == Black Pawn) */
+            let validTiles = pawnValidMoves(rowIndex, colIndex, "B");
+            highlightValidTiles(validTiles);
 
-        /* get index for tile where piece is moved */
-        let thisTileColIndex = fileIndex(thisTile[0]);
-        let thisTileRowIndex = rankIndex(thisTile[1]);
+          } else if (board[rowIndex][colIndex] == "BN") {
 
-        /* piece selected */
-        let piece = board[selectedTileRowIndex][selectedTileColIndex][1];
+            /*piece == Black Knight */
+            let validTiles = knightValidMoves(rowIndex, colIndex, "B");
+            highlightValidTiles(validTiles);
 
-        let initialTile = {
-          rowIndex: selectedTileRowIndex,
-          colIndex: selectedTileColIndex
-        };
+          } else if (board[rowIndex][colIndex] == "BR") {
 
-        let finalTile = { 
-          rowIndex: thisTileRowIndex, 
-          colIndex: thisTileColIndex 
-        };
+            /* piece == Black Rook */
+            let validTiles = rookValidMoves(rowIndex, colIndex, "B");
+            highlightValidTiles(validTiles);
 
-        /* update board */
-        updateBoard(initialTile, finalTile);
+          } else if (board[rowIndex][colIndex] == "BB") {
 
-        resetHighLight();
+            /* piece == Black Bishop */
+            let validTiles = bishopValidMoves(rowIndex, colIndex, "B");
+            highlightValidTiles(validTiles);
 
-        /* Update Move History */
+          } else if (board[rowIndex][colIndex] == "BQ") {
 
-        piece = (piece == "P") ? "" : piece; /* Algebraic notation ignores 'p' for pawn in history */
+            /* piece == Black Queen */
+            let validTiles = queenValidMoves(rowIndex, colIndex, "B");
+            highlightValidTiles(validTiles);
 
-        addToMoveHistory(thisTile, piece);
+          } else if (board[rowIndex][colIndex] == "BK") {
 
-        /* Reprint the updated board */
-        printBoard();
+            /* piece == Black King */
+            let validTiles = kingValidMoves(rowIndex, colIndex, "B");
+            highlightValidTiles(validTiles);
 
-        /* prepare for next move */
-        moveCount++;
-        selectedTiles.length = 0;
+          }
 
-        turnIndicator(moveCount);
+        } else invalidSelection(tile); /* opponent's piece */
 
-      } else if (tileStatus == "selectedTile") /* toggle selected tile */
-          resetHighLight(); 
-          
+      }
+    }
+  } else if (tileStatus == "validMoveTile") { /*  If this tile is selected as second step in moving  */
+
+    let thisTile = tile;
+    let selectedTile = selectedTiles[0];
+
+    /* get index for currently previously selected tile */
+    let selectedTileColIndex = fileIndex(selectedTile[0]);
+    let selectedTileRowIndex = rankIndex(selectedTile[1]);
+
+    /* get index for tile where piece is moved */
+    let thisTileColIndex = fileIndex(thisTile[0]);
+    let thisTileRowIndex = rankIndex(thisTile[1]);
+
+    /* piece selected */
+    let piece = board[selectedTileRowIndex][selectedTileColIndex][1];
+
+    let initialTile = {
+      rowIndex: selectedTileRowIndex,
+      colIndex: selectedTileColIndex
+    };
+
+    let finalTile = {
+      rowIndex: thisTileRowIndex,
+      colIndex: thisTileColIndex
+    };
+
+    /* update board */
+    updateBoard(initialTile, finalTile);
+
+    resetHighLight();
+
+    /* Update Move History */
+
+    piece = (piece == "P") ? "" : piece; /* Algebraic notation ignores 'p' for pawn in history */
+
+    addToMoveHistory(thisTile, piece);
+
+    /* Reprint the updated board */
+    printBoard();
+
+    /* prepare for next move */
+    moveCount++;
+    selectedTiles.length = 0;
+
+    turnIndicator(moveCount);
+
+  } else if (tileStatus == "selectedTile") /* toggle selected tile */
+    resetHighLight();
+
 });
