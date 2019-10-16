@@ -1,4 +1,3 @@
-
 /* Index of a file in the board array */
 let fileIndex = (file) => {
 
@@ -245,3 +244,29 @@ let isValidTile = (index) => {
     return isValid;
 
 }
+
+let getTileColor = (tile) => {
+
+    let tileBoxShadow = document.getElementById(`${tile}`).style.boxShadow;
+    let tileColor = "";
+    
+    /*!!!!! The dependency on css increases tight coupling. Needs to be refactored using board array instead!!!!! */
+    switch(tileBoxShadow){
+
+        case 'rgb(241, 58, 26) 0px 0px 40px inset' : tileColor = "red";
+        break;
+
+        case 'rgb(12, 112, 179) 0px 0px 40px inset' : tileColor = "blue";
+        break;
+
+        case 'rgb(193, 231, 56) 0px 0px 40px inset' : tileColor = "green";
+        break;
+
+        default: console.log("Alien Tile!");
+    
+    }
+
+    //console.log("tile color => " + tileColor);
+    return tileColor;
+}
+

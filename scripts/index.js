@@ -1,22 +1,56 @@
 /* Initialize a 2d array to store pieces */
 let board = new Array(8);
 
-for (let i = 0; i < board.length; i++) board[i] = new Array(8);
+for (let i = 0; i < board.length; i++) 
+    board[i] = new Array(8);
 
 let moveCount = 0; //To keep track of whose move it is
+let score = {"whiteScore":0, "blackScore":0};
 
 /* Moving a piece is a two step process => select a valid piece and then move it to a valid tile */
 let selectedTiles = []; /* This helps in first step. */
 
 //Exceution starts from here
+prepareBoard();
 resetBoard();
 printBoard();
 turnIndicator(moveCount);
 
+let startTimer = () => {
+
+    document.getElementById('turnContainer').style.display = 'block';
+    var seconds = 100,
+      countDiv = document.getElementById('countdownWhite'),
+      secondPass,
+      countDown = setInterval(function () {
+          "use strict";
+          secondPass();
+      }, 1000);
+    function secondPass() {
+      "use strict";
+      var minutes = Math.floor((seconds / 60)),
+          remSeconds = seconds % 60;
+      if (seconds < 10) {
+          remSeconds = "0" + remSeconds;
+      }
+      countDiv.innerHTML = minutes + ":" + remSeconds;
+      if (seconds > 0) {
+          seconds = seconds - 1;
+      } else {
+          clearInterval(countDown);
+          countDiv.innerHTML = 'Done';
+      }
+    }
+
+
+    
+}
+
+
 /** Highlight tiles and show valid moves  */
 $("td").click(function() {
 
- 
+
   let tile = $(this)[0].id;
   const tileStatus = getTileStatus(tile);
 
@@ -140,10 +174,16 @@ $("td").click(function() {
         }
     } else if (tileStatus == "validMoveTile") { /*  If this tile is selected as second step in moving  */
         
-        let thisTile = tile;
-        let selectedTile = selectedTiles[0];
+        //unhide move history after first piece is moved
+        document.getElementById('moveContainer').style.display = 'block';
 
-        /* get index for currently previously selected tile */
+        let thisTile = tile; /* Tile where piece has been moved */
+        let selectedTile = selectedTiles[0]; /* Tile selected for moving */
+
+        let tileColor = getTileColor(thisTile);
+       
+
+        /* get index for previously selected tile */
         let selectedTileColIndex = fileIndex(selectedTile[0]);
         let selectedTileRowIndex = rankIndex(selectedTile[1]);
 
@@ -153,6 +193,9 @@ $("td").click(function() {
 
         /* piece selected */
         let piece = board[selectedTileRowIndex][selectedTileColIndex][1];
+
+        /* piece to be captured/empty tile */
+        let pieceOnFinalTile = board[thisTileRowIndex][thisTileColIndex][1];
 
         let initialTile = {
           rowIndex: selectedTileRowIndex,
@@ -164,16 +207,51 @@ $("td").click(function() {
           colIndex: thisTileColIndex 
         };
 
+        /* get piece captured */
+
         /* update board */
         updateBoard(initialTile, finalTile);
 
         resetHighLight();
+
+        /* Update Score on piece capture */
+        if(tileColor == "red")
+            {
+                if(moveCount % 2 == 0)
+                    {
+                        if(pieceOnFinalTile == 'P')
+                            score.whiteScore += 1;
+                        else if(pieceOnFinalTile == 'N' || pieceOnFinalTile == 'B')
+                            score.whiteScore += 3;
+                        else if(pieceOnFinalTile == 'R')
+                            score.whiteScore += 5;
+                        else if(pieceOnFinalTile == 'Q')
+                            score.whiteScore += 9;
+
+                    }
+                else
+                    {
+                        if(pieceOnFinalTile == 'P')
+                            score.blackScore += 1;
+                        else if(pieceOnFinalTile == 'N' || pieceOnFinalTile == 'B')
+                            score.blackScore += 3;
+                        else if(pieceOnFinalTile == 'R')
+                            score.blackScore += 5;
+                        else if(pieceOnFinalTile == 'Q')
+                            score.blackScore += 9;
+                    }
+                    
+            }
+       
 
         /* Update Move History */
 
         piece = (piece == "P") ? "" : piece; /* Algebraic notation ignores 'p' for pawn in history */
 
         addToMoveHistory(thisTile, piece);
+
+        /* Update the Score */
+        updateScore();
 
         /* Reprint the updated board */
         printBoard();
@@ -187,4 +265,33 @@ $("td").click(function() {
       } else if (tileStatus == "selectedTile") /* toggle selected tile */
           resetHighLight(); 
           
+});
+
+
+/* Game Controls */
+$('#startButton').click(function(){
+
+  //modal for confirm start game
+  $('#confirmStartGame').modal('show');
+
+  $('#confirmStartGame').on('click', '#confirmStartButton', function(e) {
+
+      //hide this modal and start timer
+      $('#confirmStartGame').modal('hide');
+      
+      startTimer();
+
+      /* show move history => done in $(td).click */
+
+      /* show hidden score section => after timer starts */
+      document.getElementById('scoreContainer').style.display = 'block';
+     
+      
+      
+
+  });
+  
+  
+  
+
 });

@@ -8,22 +8,185 @@
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="./styles/style.css">
+
     </head>
 
     <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                   
+                        <!-- <a href="#" id = "logo"><img src="./images/logo.svg" ></a> -->
+
+                    <img  class = "navbar-brand" id = "logo"  src="./images/logo.svg" >
+                    <span id = "navItemSeparator"></span>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Profile</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Battles</a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Temporary -->
+                        <form class="form-inline my-2 my-lg-0">
+                            <span id = "settings">Profile and other settings.</span>
+                        </form>
+                    <!-- -->
+
+                </div>
+            </nav>
 
         <div class="container">
 
-            <div class="row">
+            <div class="row" id = "mainContainer">
 
-                <!-- Board and Move instruction Input -->
-                <div class="col-8 left-partition">
+                <!-- Modal for Game Controls -->
+                   
+                    <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            
+                            <div class="modal-header">
 
+                                <span>
+                                    <img id = "crownLogo" src="./images/crown-solid.svg"  alt="chess crown">
+                                </span>
+                                <h5 class="modal-title" id = "confirmStartGameTitle"> 
+                                  Ready to Battle ?
+                                </h5>
+                               
++                           </div>
+
+                            <div class="modal-body">
+                               The timer will start on confirmation!
+                                
+                                <hr>
+                                <div class="row">
+                                        <button id = "confirmStartButton" type="button" class="btn btn-info offset-2 col-3">Start Game!</button>
+                                        <button type="button" class="btn btn-secondary offset-1 col-3" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                        
+                    </div>
+                    </div>
+
+                <!-- End of Modal for Game Controls -->
+
+                <!-- Game Controls -->
+                <div class="col-1" id = "gameControls">
+                    
+                    <div id = "startGame">
+                        <img src="./images/startPlay.svg" alt="startGame" id = "startButton">
+                    </div>
+
+                    <div id = "restartGame">
+                        <a href="index.html"><img src="./images/restartGame.svg" alt="restartGame"></a>
+                    </div>
+                    
+                   <div id = "stepBack">
+                        <a href=""><img src="./images/stepBack.svg" alt="startGame"></a>
+                   </div>
+                    
+                    <div id = "fastStepBack">
+                        <a href=""><img src="./images/fastStepBack.svg" alt="startGame"></a>
+                    </div>
+                    
+                    <div id = "revertBoard">
+                        <a href=""><img src="./images/swapPosition.svg" alt="startGame"></a>
+                    </div>
+
+                    <div id = "downloadBoard">
+                        <a href=""><img src="./images/downloadPdf.svg" alt="startGame"></a>
+                    </div>
+                    
+                    
+                </div>
+
+                <!-- Left Board Label
+                <div class="col-1">
+                    
+                    <table id = "ranksLeft" class="table">
+                            <tbody>
+                               
+                                <tr>
+                                    <td>8</td>
+                                </tr>
+
+                                <tr>
+                                    <td>7</td>
+                                </tr>
+
+                                <tr>
+                                    <td>6</td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                </tr>                                                              
+
+                            </tbody>  
+                    </table>
+
+                </div> -->
+
+                <!-- Board and Score -->
+                <div class="col-6 left-partition">
+
+                     
                     <div class="table-div">
 
+                        <!-- Tile top indexes -->
+                        <!-- <table id = "files" class="table">
+                          <tbody>
+                            <tr>
+                                <td>a</td>
+                                <td>b</td>
+                                <td>c</td>
+                                <td>d</td>
+                                <td>e</td>
+                                <td>f</td>
+                                <td>g</td>
+                                <td>h</td>
+                            </tr>
+                          </tbody>  
+                        </table> -->
+                      
                         <!--  Chess Board -->
                         <table id = "board" class="table">
                             <tbody>
+
                                 <tr>
                                     <td class = "white" id = "a8"><img src="./images/chess-rook-black.svg" /></td>
                                     <td class = "black" id = "b8"><img src="./images/chess-knight-black.svg"  alt=""></td>
@@ -115,42 +278,116 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- Tile bottom indexes -->
+                        <!-- <table id = "files" class="table">
+                                <tbody>
+                                  <tr>
+                                      <td>a</td>
+                                      <td>b</td>
+                                      <td>c</td>
+                                      <td>d</td>
+                                      <td>e</td>
+                                      <td>f</td>
+                                      <td>g</td>
+                                      <td>h</td>
+                                  </tr>
+                                </tbody>  
+                        </table> -->
+                            
                     </div>
 
                     <!-- Score -->
-                   
-                    <div class="card">
-                        <div class="card-header">
-                          Score
+                   <div class="row" id = "scoreContainer">
+                        <div class="col-8 offset-2">
+                            <div class="card ">
+                                
+                                    <div class="card-header">
+                                            Score
+                                    </div>
+
+                                    <div class="card-body" id = "score">
+                                        
+                                    </div>
+                                
+                            </div>
                         </div>
-                        <div class="card-body">
-                          <span class="alert alert-warning">Score Goes here..</span>
-                        </div>
-                    </div>
+                   </div>
+                    
                 </div>
 
-                
-                <div class="col-4 right-partition">
+                <!-- Right Board Label
+                <div class="col-1">
+                    
+                        <table id = "ranksRight" class="table">
+                                <tbody>
+                                   
+                                    <tr>
+                                        <td>8</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>7</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>6</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>5</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>4</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>3</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>2</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>1</td>
+                                    </tr>                                                              
+    
+                                </tbody>  
+                        </table>
+    
+                </div> -->
+
+                <!-- Move History -->
+                <div class="col-3 offset-1 right-partition">
 
                     <!-- Turn Indicator -->
-                   <div class="turnContainer">
+                   <div id="turnContainer">
 
                         <div class="row">
                              <!-- Button indicating white's move -->
-                            <div class="turnWhite offset-3 ">
-                                    
-                            </div>
+                            <!-- <div class="turnWhite offset-3 ">
+                                    timer for white
+                            </div> -->
 
                             <!-- Button indicating black's move -->
-                            <div class="turnBlack offset-2 ">
-                                   
+                            <!-- <div class="turnBlack offset-2 ">
+                                   timer for black
+                            </div> -->
+                            <div id="countdownWhite">
+
+                            </div>
+
+                            <div id="countdownBlack">
+
                             </div>
                         </div>
 
                    </div>
 
                     <!-- Move History-->
-                    <div class="card moveContainer">
+                    <div class="card" id = "moveContainer">
                         <div class="card-header">
                           Move History
                         </div>
@@ -163,6 +400,34 @@
             </div>
 
         </div>
+
+        <!-- Experimenting with timer -->
+        <!-- https://codepen.io/chazmcgrill/pen/xLYYMz?editors=1010 -->
+
+            <!-- <div class="circle">
+                <span id ="circleSpan" class="display">60</span>
+                <div class="semi-c left left-circle"></div>
+                <div class="semi-c right mask-left handle"></div>
+                <div class="semi-c right right-circle"></div>
+                <div class="semi-c left mask-right"></div>
+                <div class="semi-c right handle"></div>
+            </div> -->
+
+        <!-- End of experimenting with timer -->
+
+        <!-- Second Experiment with countdown timer -->
+            <!-- <div id="countdown">
+
+            </div> -->
+        <!-- end of Second Experiment with countdown timer -->
+        <!-- Footer -->
+            <footer>
+                <div id = "footerContent">
+                    <p>Made with <img src="./images/heart-solid.svg" alt="heart" id = "heartSVG"> <span id = "ImgTextSeparator"></span> by <a href="https://github.com/ysumit99">Sumit Yadav</a></p>                
+                </div>
+                
+            </footer>
+        <!--  Footer -->
         
     </body>
     
@@ -170,6 +435,7 @@
     <script src="./scripts/lib/jquery.js" defer></script>
     <script src="./scripts/lib/popper.js" defer></script>
     <script src="./scripts/lib/bootstrap.js" defer></script>
+    <script src="https://kit.fontawesome.com/b23fa7c0ae.js" crossorigin="anonymous"></script>
     
     <!-- Custom Scripts -->
     <script src = "./scripts/utility.js"></script>

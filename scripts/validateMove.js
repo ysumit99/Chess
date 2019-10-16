@@ -1,4 +1,4 @@
-  /** Valid Moves for pieces 
+/** Valid Moves for pieces 
 * 
 * Use board array to check the current board configuration,
 * and take current indexes i.e. rank, file and piece color and piece movement rules

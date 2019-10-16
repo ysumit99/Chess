@@ -17,11 +17,10 @@ let highlightValidTiles = (validTiles) => {
             let id = file+rank;
 
             console.log("id to be updated => " + id);
-            //change box-shadow of these tiles to blue color
-
-           
+            
+            //blue color
             $(`#${id}`).css("box-shadow", "inset  0 0 40px  rgb(12, 112, 179)");
-            $(`#${id}`).css("border", "solid blue 1px");
+            
 
        } 
 
@@ -35,11 +34,10 @@ let highlightValidTiles = (validTiles) => {
             let id = file+rank;
 
             console.log("id to be updated => " + id);
-            //change box-shadow of these tiles to blue color
-
             
+            //red color
             $(`#${id}`).css("box-shadow", "inset  0 0 40px  #f13a1a");
-            $(`#${id}`).css("border", "solid red 1px");
+            
 
         } 
 
@@ -58,9 +56,9 @@ let validSelection = (tile) => {
     
     let selectedTile = document.getElementById(`${tile}`);
     
-    //valid so green border and shadow
+    //valid so green shadow
     selectedTile.style.boxShadow = "inset 0 0 40px  rgb(193, 231, 56)";
-    selectedTile.style.border = "solid green 1px";
+    
     
     
 
@@ -93,4 +91,3 @@ let turnIndicator = (moveCount) => {
 
     }
 } 
-

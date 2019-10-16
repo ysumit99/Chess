@@ -1,3 +1,9 @@
+*{
+
+    margin: 0;
+    padding: 0;
+}
+
 .white{
     background-color: white;
     
@@ -8,18 +14,56 @@
     
 }
 
+.table{
+    margin-bottom: 0;
+}
+
 #board{
 
     border: solid black 5px;
-    margin-top: 1%;
-    margin-left: 1%;
     height: 65vh;
     width: 65vh;
    
 
 }
+
+#files{
+
+    height: 2vh;
+    width: 65vh;
+    /* background-color: #f3e290; */
+    text-align: center;
+}
+
+#ranksLeft{
+
+    height: 65vh;
+    width: 2vh;
+    /* background-color: #c5f390; */
+    margin-left: 50%;
+    margin-top: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    
+}
+
+#ranksRight{
+
+    height: 65vh;
+    width: 2vh;
+    /* background-color: #c5f390; */
+    margin-right: 70%;
+    margin-top: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    
+}
+
 .card{
   margin-top: 1%;
+  
 }
 
 td{
@@ -27,6 +71,7 @@ td{
     max-height:50px;
     text-align: center;
     position: relative;
+    vertical-align: middle;
     
    
 }
@@ -35,22 +80,7 @@ body{
 
    margin: 0;
    height: 100vh;
-}
-
-/* .table-div{
-    background-color: aquamarine;
-} */
-
-/* .left-partition{
-    background-color: #d3d3d3;
-    margin-left: 1%;
-    height: 100%;
-} */
-
-*{
-
-    margin: 0;
-    padding: 0;
+  
 }
 
 #piece{
@@ -74,14 +104,14 @@ img{
 
 /* Turn Indicators for White and Black */
 
-.turnContainer{
+#turnContainer{
 
     margin-top: 5%;
 }
 
-.moveContainer{
+#moveContainer{
 
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .turnWhite{
@@ -104,3 +134,190 @@ img{
 }
 
 
+#gameControls{
+    margin-left: 1%;
+    margin-top: 5%;
+}
+
+
+#startGame, #restartGame, #stepBack, #fastStepBack, #revertBoard{
+    
+    height: 10%;
+
+}
+
+#mainContainer{
+    margin-top: 1%;
+}
+
+#scoreContainer{
+    margin-top: 5%
+}
+
+#logo{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 200%;
+}
+
+#navItemSeparator{
+    margin-left: 5%;
+}
+
+#table td{
+    pointer-events : "none";
+}
+
+#settings{
+    color: white;
+}
+
+footer {
+    background-color: rgb(211, 210, 210);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5%;
+    width: 100%;
+    overflow: hidden;
+}
+footer p{
+
+    text-align: center;
+}
+
+#heartSVG{
+    margin: 0;
+    height: 50%;
+}
+
+#ImgTextSeparator{
+    margin-left: 3%;
+}
+
+#crownLogo{
+    margin-left: 0; 
+    margin-right: 0; 
+    margin-top: 0; 
+    margin-bottom: 0;
+}
+
+/* css for countdown timer */
+/* #005f6b;: #005f6b
+#00dffc;: #00dffc
+#008c9e: #008c9e */
+
+/* body
+	background: #005f6b;
+	display: flex
+	justify-content: center */
+
+/* .circle
+	{
+        position: relative;
+	    display: flex;
+	    margin-top: 80px;
+    }
+	#circleSpan
+		{
+            font-family: monospace;
+            font-size: 72px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: #00dffc;
+        }
+
+	.semi-c
+		{
+            box-sizing: border-box;
+            height: 200px;
+            width: 100px;
+        }
+
+	.left
+		{
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
+        }
+	
+	.right
+		{
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+		
+	.left-circle, .right-circle
+		{
+            border: 8px solid #00dffc;
+        }
+		
+	.mask-left, .mask-right, .block
+		{
+            border: 8px solid #008c9e;
+            position: absolute;
+        }
+	
+	.left-circle, .block, .mask-right
+		{
+            border-right: 0;
+        }
+	
+	.right-circle, .mask-left 
+		{
+            border-left: 0;
+        }
+		
+	.block, .mask-left, .left-circle
+		{
+            z-index: 1;
+        }
+	
+	.block, .mask-left
+		{
+            left: 100px;
+        }
+
+	.mask-left
+		{
+            transform-origin: left center;
+		    transform: rotate(0deg);
+        }
+
+
+	.mask-right
+		{
+            transform-origin: right center;
+            transform: rotate(0deg);
+        }
+	
+	.block
+		{
+            display: none;
+        }
+	
+	.handle
+		{
+            display: none
+        } */
+    /** End of styles for experimenting with countdown timer **/
+    
+    /** styles for countdown timer experiment 2**/
+        #countdownWhite {
+            text-align: center;
+            padding-top: 100px;
+            font-weight: bold;
+            font-size: 60px;
+            /* color: #f3e290; */
+        }
+
+        #countdownBlack {
+            text-align: center;
+            padding-top: 100px;
+            font-weight: bold;
+            font-size: 60px;
+            /* color: grey; */
+        }
+        

@@ -110,11 +110,11 @@ let getTileStatus = (tile) => {
 
     let selectedTile = document.getElementById(`${tile}`);
 
-    if(selectedTile.style.border == "")
+    if(selectedTile.style.boxShadow == "")
         status = "unselectedTile";
-    else if(selectedTile.style.border == "1px solid blue")
+    else if(selectedTile.style.boxShadow == "rgb(12, 112, 179) 0px 0px 40px inset" || selectedTile.style.boxShadow == "rgb(241, 58, 26) 0px 0px 40px inset")
         status = "validMoveTile";
-    else if(selectedTile.style.border == "1px solid green")
+    else if(selectedTile.style.boxShadow == "rgb(193, 231, 56) 0px 0px 40px inset")
         status = "selectedTile";
 
     console.log("Tile status =====> " + status);
@@ -123,4 +123,28 @@ let getTileStatus = (tile) => {
 
 }
 
+/* upadte score */
+let updateScore = () => {
 
+   
+
+    $('#score').html(`
+                <div class = 'row'>
+                    <button type="button" class="btn btn-lg btn-light col-6">White : ${score.whiteScore}</button>
+                    <button type="button" class="btn btn-lg btn-dark col-6">Black : ${score.blackScore}</button>
+                </div>
+        `)
+}
+
+
+/* prepare board before a match */
+let prepareBoard = () => {
+
+    //score. turnIndicator and history section must be hidden by default
+    document.getElementById('turnContainer').style.display = 'none';
+    document.getElementById('moveContainer').style.display = 'none';
+    document.getElementById('scoreContainer').style.display = 'none';
+
+    
+
+}
