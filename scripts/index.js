@@ -41,16 +41,13 @@ let startTimer = () => {
           countDiv.innerHTML = 'Done';
       }
     }
-
-
-    
 }
 
 
 /** Highlight tiles and show valid moves  */
 $("td").click(function() {
 
-
+ 
   let tile = $(this)[0].id;
   const tileStatus = getTileStatus(tile);
 
@@ -174,7 +171,7 @@ $("td").click(function() {
         }
     } else if (tileStatus == "validMoveTile") { /*  If this tile is selected as second step in moving  */
         
-        //unhide move history after first piece is moved
+        //unhide move history container after first piece is moved
         document.getElementById('moveContainer').style.display = 'block';
 
         let thisTile = tile; /* Tile where piece has been moved */
@@ -241,6 +238,7 @@ $("td").click(function() {
                             score.blackScore += 9;
                     }
                     
+                    
             }
        
 
@@ -281,13 +279,8 @@ $('#startButton').click(function(){
       
       startTimer();
 
-      /* show move history => done in $(td).click */
-
-      /* show hidden score section => after timer starts */
+      //unhide score section with timer 
       document.getElementById('scoreContainer').style.display = 'block';
-     
-      
-      
 
   });
   
