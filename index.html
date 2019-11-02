@@ -42,7 +42,7 @@
 
                     <!-- Temporary -->
                         <form class="form-inline my-2 my-lg-0">
-                            <span id = "settings">Profile and other settings.</span>
+                            <span id = "settings">logout , settings...</span>
                         </form>
                     <!-- -->
 
@@ -56,63 +56,61 @@
                 <!-- Modal for Game Controls -->
                    
                     <div class="modal fade" id="confirmStartGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            
-                            <div class="modal-header">
-
-                                <span>
-                                    <img id = "crownLogo" src="./images/crown-solid.svg"  alt="chess crown">
-                                </span>
-                                <h5 class="modal-title" id = "confirmStartGameTitle"> 
-                                  Ready to Battle ?
-                                </h5>
-                               
-+                           </div>
-
-                            <div class="modal-body">
-                               The timer will start on confirmation!
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
                                 
-                                <hr>
-                                <div class="row">
-                                        <button id = "confirmStartButton" type="button" class="btn btn-info offset-2 col-3">Start Game!</button>
-                                        <button type="button" class="btn btn-secondary offset-1 col-3" data-dismiss="modal">Cancel</button>
-                                </div>
-                            </div>
+                                <div class="modal-header">
 
+                                    <span>
+                                        <img id = "crownLogo" src="./images/crown-solid.svg"  alt="chess crown">
+                                    </span>
+                                    <h5 class="modal-title" id = "confirmStartGameTitle"> 
+                                    Ready to Battle ?
+                                    </h5>
+                                
+    +                           </div>
+
+                                <div class="modal-body">
+                               
+                                    <div class="row">
+                                            <button id = "confirmStartButton" type="button" class="btn btn-info offset-2 col-3">Start Game!</button>
+                                            <button type="button" class="btn btn-secondary offset-1 col-3" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
                             
                         </div>
-                        
-                    </div>
                     </div>
 
                 <!-- End of Modal for Game Controls -->
 
                 <!-- Game Controls -->
                 <div class="col-1" id = "gameControls">
-                    
-                    <div id = "startGame">
-                        <img src="./images/startPlay.svg" alt="startGame" id = "startButton">
+                        
+                    <div id = "startGame" class="startGame">
+                           <img src="./images/startPlay.svg" alt="startGame" id = "startButton" class="gameControl">
                     </div>
 
                     <div id = "restartGame">
-                        <a href="index.html"><img src="./images/restartGame.svg" alt="restartGame"></a>
+                        <a href="index.html"><img src="./images/restartGame.svg"  id = "restartButton"  class="gameControl" alt="restartGame"></a>
                     </div>
                     
                    <div id = "stepBack">
-                        <a href=""><img src="./images/stepBack.svg" alt="startGame"></a>
+                        <a href=""><img src="./images/stepBack.svg" id = "stepBackButton" class="gameControl" alt="startGame"></a>
                    </div>
                     
                     <div id = "fastStepBack">
-                        <a href=""><img src="./images/fastStepBack.svg" alt="startGame"></a>
+                        <a href=""><img src="./images/fastStepBack.svg" id = "fastStepBackButton" class="gameControl" alt="startGame"></a>
                     </div>
                     
                     <div id = "revertBoard">
-                        <a href=""><img src="./images/swapPosition.svg" alt="startGame"></a>
+                        <a href=""><img src="./images/swapPosition.svg" id = "revertBoardButton" class="gameControl" alt="startGame"></a>
                     </div>
 
                     <div id = "downloadBoard">
-                        <a href=""><img src="./images/downloadPdf.svg" alt="startGame"></a>
+                        <a href=""><img src="./images/downloadPdf.svg" id = "downloadMovesButton" class="gameControl" alt="startGame"></a>
                     </div>
                     
                     
@@ -367,14 +365,14 @@
 
                         <div class="row">
                              <!-- Button indicating white's move -->
-                            <!-- <div class="turnWhite offset-3 ">
+                            <div class="turnWhite offset-3 " id = "turnWhite">
                                     timer for white
-                            </div> -->
+                            </div>
 
                             <!-- Button indicating black's move -->
-                            <!-- <div class="turnBlack offset-2 ">
+                            <div class="turnBlack offset-2 " id = "turnBlack">
                                    timer for black
-                            </div> -->
+                            </div>
                             <div id="countdownWhite">
 
                             </div>
@@ -395,6 +393,7 @@
                           <div id="history-container"></div>
                         </div>
                     </div>
+                    
                 </div>
 
             </div>
@@ -435,7 +434,6 @@
     <script src="./scripts/lib/jquery.js" defer></script>
     <script src="./scripts/lib/popper.js" defer></script>
     <script src="./scripts/lib/bootstrap.js" defer></script>
-    <script src="https://kit.fontawesome.com/b23fa7c0ae.js" crossorigin="anonymous"></script>
     
     <!-- Custom Scripts -->
     <script src = "./scripts/utility.js"></script>

@@ -1,323 +1,209 @@
-*{
-
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.white{
-    background-color: white;
-    
+.white {
+  background-color: white;
 }
 
-.black{
-    background-color: grey;
-    
+.black {
+  background-color: grey;
 }
 
-.table{
-    margin-bottom: 0;
+.table {
+  margin-bottom: 0;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
 }
 
-#board{
-
-    border: solid black 5px;
-    height: 65vh;
-    width: 65vh;
-   
-
+#board {
+  border: solid black 5px;
+  height: 65vh;
+  width: 65vh;
 }
 
-#files{
-
-    height: 2vh;
-    width: 65vh;
-    /* background-color: #f3e290; */
-    text-align: center;
+#files {
+  height: 2vh;
+  width: 65vh;
+  /* background-color: #f3e290; */
+  text-align: center;
 }
 
-#ranksLeft{
-
-    height: 65vh;
-    width: 2vh;
-    /* background-color: #c5f390; */
-    margin-left: 50%;
-    margin-top: 100%;
-    text-align: center;
-    vertical-align: middle;
-    border: none;
-    
+#ranksLeft {
+  height: 65vh;
+  width: 2vh;
+  /* background-color: #c5f390; */
+  margin-left: 50%;
+  margin-top: 100%;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
 }
 
-#ranksRight{
-
-    height: 65vh;
-    width: 2vh;
-    /* background-color: #c5f390; */
-    margin-right: 70%;
-    margin-top: 100%;
-    text-align: center;
-    vertical-align: middle;
-    border: none;
-    
+#ranksRight {
+  height: 65vh;
+  width: 2vh;
+  /* background-color: #c5f390; */
+  margin-right: 70%;
+  margin-top: 100%;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
 }
 
-.card{
+.card {
   margin-top: 1%;
-  
 }
 
-td{
-    max-width:50px;
-    max-height:50px;
-    text-align: center;
-    position: relative;
-    vertical-align: middle;
-    
-   
+td {
+  max-width: 50px;
+  max-height: 50px;
+  text-align: center;
+  position: relative;
+  vertical-align: middle;
 }
 
-body{
-
-   margin: 0;
-   height: 100vh;
-  
+body {
+  margin: 0;
+  height: 100vh;
 }
 
-#piece{
-    
-    z-index: 999;
+#piece {
+  z-index: 999;
 }
 
-img{
-
-    height: 40px;
-    width: 35px;
-    position: absolute;
-    margin-left: -16px;
-    margin-top: 16px;
+img {
+  height: 40px;
+  width: 35px;
+  position: absolute;
+  margin-left: -16px;
+  margin-top: 16px;
 }
 
-.white:hover, .black:hover {
-    box-shadow: inset  0 0 40px rgb(8, 1, 0); 
-  }
-
+.white:hover,
+.black:hover {
+  box-shadow: inset 0 0 40px rgb(8, 1, 0);
+}
 
 /* Turn Indicators for White and Black */
 
-#turnContainer{
-
-    margin-top: 5%;
+#turnContainer {
+  margin-top: 5%;
 }
 
-#moveContainer{
-
-    margin-top: 10%;
+#moveContainer {
+  margin-top: 10%;
 }
 
-.turnWhite{
-
-    width:  60px;
-    height: 60px;
-    border-radius: 10%;
-    background-color: #f3e290;
-    
+.turnWhite {
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
+  background-color: #f3e290;
 }
 
-.turnBlack{
-
-    width:  60px;
-    height: 60px;
-    border-radius: 10%;
-    background-color: grey;
-   
-    
+.turnBlack {
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
+  background-color: grey;
 }
 
-
-#gameControls{
-    margin-left: 1%;
-    margin-top: 5%;
+#gameControls {
+  margin-left: 1%;
+  margin-top: 5%;
 }
 
-
-#startGame, #restartGame, #stepBack, #fastStepBack, #revertBoard{
-    
-    height: 10%;
-
+#startGame,
+#restartGame,
+#stepBack,
+#fastStepBack,
+#revertBoard {
+  height: 10%;
 }
 
-#mainContainer{
-    margin-top: 1%;
+#mainContainer {
+  margin-top: 1%;
 }
 
-#scoreContainer{
-    margin-top: 5%
+#scoreContainer {
+  margin-top: 5%;
 }
 
-#logo{
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 200%;
+#logo {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 200%;
 }
 
-#navItemSeparator{
-    margin-left: 5%;
+#navItemSeparator {
+  margin-left: 5%;
 }
 
-#table td{
-    pointer-events : "none";
+#table td {
+  pointer-events: "none";
 }
 
-#settings{
-    color: white;
+#settings {
+  color: white;
 }
 
 footer {
-    background-color: rgb(211, 210, 210);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 5%;
-    width: 100%;
-    overflow: hidden;
+  background-color: rgb(211, 210, 210);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5%;
+  width: 100%;
+  overflow: hidden;
 }
-footer p{
+footer p {
+  text-align: center;
+}
 
+#heartSVG {
+  margin: 0;
+  height: 50%;
+}
+
+#ImgTextSeparator {
+  margin-left: 3%;
+}
+
+#crownLogo {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/** styles for countdown timer experiment 2**/
+/* #countdownWhite {
     text-align: center;
+    padding-top: 100px;
+    font-weight: bold;
+    font-size: 60px; */
+/* color: #f3e290;*/
+/* } */
+
+/* #countdownBlack {
+    text-align: center;
+    padding-top: 100px;
+    font-weight: bold;
+    font-size: 60px; */
+/* color: grey; */
+/* }  */
+
+/* game control styles */
+
+.gameControl {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
-#heartSVG{
-    margin: 0;
-    height: 50%;
+.gameControl:hover {
+  opacity: 1;
 }
 
-#ImgTextSeparator{
-    margin-left: 3%;
-}
-
-#crownLogo{
-    margin-left: 0; 
-    margin-right: 0; 
-    margin-top: 0; 
-    margin-bottom: 0;
-}
-
-/* css for countdown timer */
-/* #005f6b;: #005f6b
-#00dffc;: #00dffc
-#008c9e: #008c9e */
-
-/* body
-	background: #005f6b;
-	display: flex
-	justify-content: center */
-
-/* .circle
-	{
-        position: relative;
-	    display: flex;
-	    margin-top: 80px;
-    }
-	#circleSpan
-		{
-            font-family: monospace;
-            font-size: 72px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            color: #00dffc;
-        }
-
-	.semi-c
-		{
-            box-sizing: border-box;
-            height: 200px;
-            width: 100px;
-        }
-
-	.left
-		{
-            border-top-left-radius: 100px;
-            border-bottom-left-radius: 100px;
-        }
-	
-	.right
-		{
-            border-top-right-radius: 100px;
-            border-bottom-right-radius: 100px;
-        }
-		
-	.left-circle, .right-circle
-		{
-            border: 8px solid #00dffc;
-        }
-		
-	.mask-left, .mask-right, .block
-		{
-            border: 8px solid #008c9e;
-            position: absolute;
-        }
-	
-	.left-circle, .block, .mask-right
-		{
-            border-right: 0;
-        }
-	
-	.right-circle, .mask-left 
-		{
-            border-left: 0;
-        }
-		
-	.block, .mask-left, .left-circle
-		{
-            z-index: 1;
-        }
-	
-	.block, .mask-left
-		{
-            left: 100px;
-        }
-
-	.mask-left
-		{
-            transform-origin: left center;
-		    transform: rotate(0deg);
-        }
-
-
-	.mask-right
-		{
-            transform-origin: right center;
-            transform: rotate(0deg);
-        }
-	
-	.block
-		{
-            display: none;
-        }
-	
-	.handle
-		{
-            display: none
-        } */
-    /** End of styles for experimenting with countdown timer **/
-    
-    /** styles for countdown timer experiment 2**/
-        #countdownWhite {
-            text-align: center;
-            padding-top: 100px;
-            font-weight: bold;
-            font-size: 60px;
-            /* color: #f3e290; */
-        }
-
-        #countdownBlack {
-            text-align: center;
-            padding-top: 100px;
-            font-weight: bold;
-            font-size: 60px;
-            /* color: grey; */
-        }
-        
+/* end of game control styles */
