@@ -16,11 +16,23 @@ resetBoard();
 printBoard();
 turnIndicator(moveCount);
 
-/* Timer logic goes here... */
+/* Timer for Game  */
 let startTimer = () => {
 
-  let min = 3, sec = 180;
+  /* Reveal timer */
+  document.getElementById('turnContainer').style.display = 'block';
 
+
+  /* Countdown timer starts */
+  let count = parseInt($("#time").text());
+  let myCounter = setInterval(function () {
+
+    count -= 1;
+    $("#time").html(count);
+
+    if (count == 0)
+      clearInterval(myCounter);
+  }, 1000);
 
 }
 

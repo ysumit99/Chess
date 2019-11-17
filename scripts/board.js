@@ -131,8 +131,8 @@ let updateScore = () => {
 
     $('#score').html(`
                 <div class = 'row'>
-                    <button type="button" class="btn btn-lg btn-light col-6">White : ${score.whiteScore}</button>
-                    <button type="button" class="btn btn-lg btn-dark col-6">Black : ${score.blackScore}</button>
+                    <button type="button" class="btn btn-lg btn-light col-6">W : ${score.whiteScore}</button>
+                    <button type="button" class="btn btn-lg btn-dark col-6">B : ${score.blackScore}</button>
                 </div>
         `)
 }

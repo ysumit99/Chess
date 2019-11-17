@@ -96,20 +96,6 @@ img {
   margin-top: 10%;
 }
 
-.turnWhite {
-  width: 60px;
-  height: 60px;
-  border-radius: 10%;
-  background-color: #f3e290;
-}
-
-.turnBlack {
-  width: 60px;
-  height: 60px;
-  border-radius: 10%;
-  background-color: grey;
-}
-
 #gameControls {
   margin-left: 1%;
   margin-top: 5%;
@@ -178,23 +164,6 @@ footer p {
   margin-bottom: 0;
 }
 
-/** styles for countdown timer experiment 2**/
-/* #countdownWhite {
-    text-align: center;
-    padding-top: 100px;
-    font-weight: bold;
-    font-size: 60px; */
-/* color: #f3e290;*/
-/* } */
-
-/* #countdownBlack {
-    text-align: center;
-    padding-top: 100px;
-    font-weight: bold;
-    font-size: 60px; */
-/* color: grey; */
-/* }  */
-
 /* game control styles */
 
 .gameControl {
@@ -207,3 +176,35 @@ footer p {
 }
 
 /* end of game control styles */
+
+/* styles for timer */
+.pieWhite {
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid rgb(255, 244, 86);
+  float: left;
+  margin: 2em;
+}
+.pieBlack {
+  width: 80px;
+  height: 80px;
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid grey;
+  float: left;
+  margin: 2em;
+}
+
+#time {
+  font-size: 1.5em;
+  position: absolute;
+  top: 30%;
+  left: 28%;
+  color: lighten(#000, 60%);
+}
