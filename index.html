@@ -11,46 +11,6 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <!-- <a href="#" id = "logo"><img src="./images/logo.svg" ></a> -->
-
-        <img class="navbar-brand" id="logo" src="./images/logo.svg" />
-        <span id="navItemSeparator"></span>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="">Profile</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="">Battles</a>
-          </li>
-        </ul>
-
-        <!-- Temporary -->
-        <form class="form-inline my-2 my-lg-0">
-          <span id="settings">logout , settings...</span>
-        </form>
-        <!-- -->
-      </div>
-    </nav>
-
     <div class="container">
       <div class="row" id="mainContainer">
         <!-- Modal for Game Controls -->
@@ -212,194 +172,186 @@
         <!-- Board and Score -->
         <div class="col-6 left-partition">
           <div class="table-div">
-            <!-- Tile top indexes -->
-            <!-- <table id = "files" class="table">
-                          <tbody>
-                            <tr>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>c</td>
-                                <td>d</td>
-                                <td>e</td>
-                                <td>f</td>
-                                <td>g</td>
-                                <td>h</td>
-                            </tr>
-                          </tbody>  
-                        </table> -->
-
             <!--  Chess Board -->
-            <table id="board" class="table">
-              <tbody>
-                <tr>
-                  <td class="white" id="a8">
-                    <img src="./images/chess-rook-black.svg" />
-                  </td>
-                  <td class="black" id="b8">
-                    <img src="./images/chess-knight-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="c8">
-                    <img src="./images/chess-bishop-black.svg" alt="" />
-                  </td>
-                  <td class="black" id="d8">
-                    <img src="./images/chess-queen-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="e8">
-                    <img src="./images/chess-king-black.svg" alt="" />
-                  </td>
-                  <td class="black" id="f8">
-                    <img src="./images/chess-bishop-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="g8">
-                    <img src="./images/chess-knight-black.svg" alt="" />
-                  </td>
-                  <td class="black" id="h8">
-                    <img src="./images/chess-rook-black.svg" alt="" />
-                  </td>
-                </tr>
+            <div id="boardContainer">
+              <div id="row1">
+                <div class="white block" id="a8">
+                  <img src="./images/chess-rook-black.svg" />
+                </div>
 
-                <tr>
-                  <td class="black" id="a7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="b7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="black" id="c7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="d7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="black" id="e7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="f7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="black" id="g7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                  <td class="white" id="h7">
-                    <img src="./images/chess-pawn-black.svg" alt="" />
-                  </td>
-                </tr>
+                <div class="black block" id="b8">
+                  <img src="./images/chess-knight-black.svg" alt="" />
+                </div>
 
-                <tr>
-                  <td class="white" id="a6"></td>
-                  <td class="black" id="b6"></td>
-                  <td class="white" id="c6"></td>
-                  <td class="black" id="d6"></td>
-                  <td class="white" id="e6"></td>
-                  <td class="black" id="f6"></td>
-                  <td class="white" id="g6"></td>
-                  <td class="black" id="h6"></td>
-                </tr>
+                <div class="white block" id="c8">
+                  <img src="./images/chess-bishop-black.svg" alt="" />
+                </div>
 
-                <tr>
-                  <td class="black" id="a5"></td>
-                  <td class="white" id="b5"></td>
-                  <td class="black" id="c5"></td>
-                  <td class="white" id="d5"></td>
-                  <td class="black" id="e5"></td>
-                  <td class="white" id="f5"></td>
-                  <td class="black" id="g5"></td>
-                  <td class="white" id="h5"></td>
-                </tr>
+                <div class="black block" id="d8">
+                  <img src="./images/chess-queen-black.svg" alt="" />
+                </div>
 
-                <tr>
-                  <td class="white" id="a4"></td>
-                  <td class="black" id="b4"></td>
-                  <td class="white" id="c4"></td>
-                  <td class="black" id="d4"></td>
-                  <td class="white" id="e4"></td>
-                  <td class="black" id="f4"></td>
-                  <td class="white" id="g4"></td>
-                  <td class="black" id="h4"></td>
-                </tr>
+                <div class="white block" id="e8">
+                  <img src="./images/chess-king-black.svg" alt="" />
+                </div>
 
-                <tr>
-                  <td class="black" id="a3"></td>
-                  <td class="white" id="b3"></td>
-                  <td class="black" id="c3"></td>
-                  <td class="white" id="d3"></td>
-                  <td class="black" id="e3"></td>
-                  <td class="white" id="f3"></td>
-                  <td class="black" id="g3"></td>
-                  <td class="white" id="h3"></td>
-                </tr>
+                <div class="black block" id="f8">
+                  <img src="./images/chess-bishop-black.svg" alt="" />
+                </div>
 
-                <tr>
-                  <td class="white" id="a2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="b2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="c2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="d2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="e2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="f2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="g2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="h2">
-                    <img src="./images/chess-pawn-white.svg" alt="" />
-                  </td>
-                </tr>
+                <div class="white block" id="g8">
+                  <img src="./images/chess-knight-black.svg" alt="" />
+                </div>
 
+                <div class="black block" id="h8">
+                  <img src="./images/chess-rook-black.svg" alt="" />
+                </div>
+              </div>
+
+              <div id="row2">
+                <div class="black block" id="a7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="white block" id="b7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="black block" id="c7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="white block" id="d7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="black block" id="e7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="white block" id="f7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="black block" id="g7">
+                  <img src="./images/chess-pawn-black.svg" alt="" />
+                </div>
+
+                <div class="white block" id="h7">
+                  <img src="./images/chess-pawn-black.svg" />
+                </div>
+              </div>
+
+              <div id="row3">
                 <tr>
-                  <td class="black" id="a1">
+                  <div class="white block" id="a6"></div>
+                  <div class="black block" id="b6"></div>
+                  <div class="white block" id="c6"></div>
+                  <div class="black block" id="d6"></div>
+                  <div class="white block" id="e6"></div>
+                  <div class="black block" id="f6"></div>
+                  <div class="white block" id="g6"></div>
+                  <div class="black block" id="h6"></div>
+                </tr>
+              </div>
+
+              <div id="row4">
+                <tr>
+                  <div class="black block" id="a5"></div>
+                  <div class="white block" id="b5"></div>
+                  <div class="black block" id="c5"></div>
+                  <div class="white block" id="d5"></div>
+                  <div class="black block" id="e5"></div>
+                  <div class="white block" id="f5"></div>
+                  <div class="black block" id="g5"></div>
+                  <div class="white block" id="h5"></div>
+                </tr>
+              </div>
+
+              <div id="row5">
+                <tr>
+                  <div class="white block" id="a4"></div>
+                  <div class="black block" id="b4"></div>
+                  <div class="white block" id="c4"></div>
+                  <div class="black block" id="d4"></div>
+                  <div class="white block" id="e4"></div>
+                  <div class="black block" id="f4"></div>
+                  <div class="white block" id="g4"></div>
+                  <div class="black block" id="h4"></div>
+                </tr>
+              </div>
+
+              <div id="row6">
+                <tr>
+                  <div class="black block" id="a3"></div>
+                  <div class="white block" id="b3"></div>
+                  <div class="black block" id="c3"></div>
+                  <div class="white block" id="d3"></div>
+                  <div class="black block" id="e3"></div>
+                  <div class="white block" id="f3"></div>
+                  <div class="black block" id="g3"></div>
+                  <div class="white block" id="h3"></div>
+                </tr>
+              </div>
+
+              <div id="row7">
+                <tr>
+                  <div class="white block" id="a2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="black block" id="b2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="white block" id="c2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="black block" id="d2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="white block" id="e2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="black block" id="f2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="white block" id="g2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                  <div class="black block" id="h2">
+                    <img src="./images/chess-pawn-white.svg" alt="" />
+                  </div>
+                </tr>
+              </div>
+
+              <div id="row8">
+                <tr>
+                  <div class="black block" id="a1">
                     <img src="./images/chess-rook-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="b1">
+                  </div>
+                  <div class="white block" id="b1">
                     <img src="./images/chess-knight-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="c1">
+                  </div>
+                  <div class="black block" id="c1">
                     <img src="./images/chess-bishop-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="d1">
+                  </div>
+                  <div class="white block" id="d1">
                     <img src="./images/chess-queen-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="e1">
+                  </div>
+                  <div class="black block" id="e1">
                     <img src="./images/chess-king-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="f1">
+                  </div>
+                  <div class="white block" id="f1">
                     <img src="./images/chess-bishop-white.svg" alt="" />
-                  </td>
-                  <td class="black" id="g1">
+                  </div>
+                  <div class="black block" id="g1">
                     <img src="./images/chess-knight-white.svg" alt="" />
-                  </td>
-                  <td class="white" id="h1">
+                  </div>
+                  <div class="white block" id="h1">
                     <img src="./images/chess-rook-white.svg" alt="" />
-                  </td>
+                  </div>
                 </tr>
-              </tbody>
-            </table>
-
-            <!-- Tile bottom indexes -->
-            <!-- <table id = "files" class="table">
-                                <tbody>
-                                  <tr>
-                                      <td>a</td>
-                                      <td>b</td>
-                                      <td>c</td>
-                                      <td>d</td>
-                                      <td>e</td>
-                                      <td>f</td>
-                                      <td>g</td>
-                                      <td>h</td>
-                                  </tr>
-                                </tbody>  
-                        </table> -->
+              </div>
+            </div>
           </div>
 
           <!-- Timer and Score -->
@@ -440,51 +392,8 @@
           </div>
         </div>
 
-        <!-- Right Board Label
-                <div class="col-1">
-                    
-                        <table id = "ranksRight" class="table">
-                                <tbody>
-                                   
-                                    <tr>
-                                        <td>8</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>7</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>6</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>5</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>4</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>3</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>2</td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>1</td>
-                                    </tr>                                                              
-    
-                                </tbody>  
-                        </table>
-    
-                </div> -->
-
         <!-- Move History -->
-        <div class="col-3 offset-1 right-partition">
+        <div class="col-2 offset-2 right-partition">
           <!-- Move History-->
           <div class="card" id="moveContainer">
             <div class="card-header">
@@ -497,15 +406,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
-    <!-- <footer>
-                <div id = "footerContent">
-                    <p>Made with <img src="./images/heart-solid.svg" alt="heart" id = "heartSVG"> <span id = "ImgTextSeparator"></span> by <a href="https://github.com/ysumit99">Sumit Yadav</a></p>                
-                </div>
-                
-            </footer> -->
-    <!--  Footer -->
   </body>
 
   <!-- Js Libs -->

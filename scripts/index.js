@@ -38,7 +38,7 @@ let startTimer = () => {
 
 
 /** Highlight tiles and show valid moves  */
-$("td").click(function () {
+$(".block").click(function () {
 
 
 
@@ -266,7 +266,7 @@ $('#startButton').click(function () {
     $('#confirmStartGame').modal('hide');
 
     //reveal the board by removing the blur
-    $('#board').css("filter", "none");
+    $('#boardContainer').css("filter", "none");
 
     //start the timer for white
     startTimer();
