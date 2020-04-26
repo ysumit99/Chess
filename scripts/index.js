@@ -268,8 +268,8 @@ $('#startButton').click(function () {
     //reveal the board by removing the blur
     $('#boardContainer').css("filter", "none");
 
-    //start the timer for white
-    startTimer();
+    // //start the timer for white
+    // startTimer();
 
   });
 

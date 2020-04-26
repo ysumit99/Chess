@@ -141,8 +141,8 @@ let updateScore = () => {
 /* Hide components initially  */
 let prepareBoard = () => {
 
-    //score. turnIndicator and history section must be hidden by default
-    document.getElementById('turnContainer').style.display = 'none';
+    //score and history section must be hidden by default
+    
     document.getElementById('moveContainer').style.display = 'none';
     document.getElementById('scoreContainer').style.display = 'none';
 

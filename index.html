@@ -84,93 +84,11 @@
                 alt="restartGame"
             /></a>
           </div>
-
-          <div id="stepBack">
-            <a href=""
-              ><img
-                src="./images/stepBack.svg"
-                id="stepBackButton"
-                class="gameControl"
-                alt="startGame"
-            /></a>
-          </div>
-
-          <div id="fastStepBack">
-            <a href=""
-              ><img
-                src="./images/fastStepBack.svg"
-                id="fastStepBackButton"
-                class="gameControl"
-                alt="startGame"
-            /></a>
-          </div>
-
-          <div id="revertBoard">
-            <a href=""
-              ><img
-                src="./images/swapPosition.svg"
-                id="revertBoardButton"
-                class="gameControl"
-                alt="startGame"
-            /></a>
-          </div>
-
-          <div id="downloadBoard">
-            <a href=""
-              ><img
-                src="./images/downloadPdf.svg"
-                id="downloadMovesButton"
-                class="gameControl"
-                alt="startGame"
-            /></a>
-          </div>
+          
         </div>
 
-        <!-- Left Board Label
-                <div class="col-1">
-                    
-                    <table id = "ranksLeft" class="table">
-                            <tbody>
-                               
-                                <tr>
-                                    <td>8</td>
-                                </tr>
-
-                                <tr>
-                                    <td>7</td>
-                                </tr>
-
-                                <tr>
-                                    <td>6</td>
-                                </tr>
-
-                                <tr>
-                                    <td>5</td>
-                                </tr>
-
-                                <tr>
-                                    <td>4</td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                </tr>                                                              
-
-                            </tbody>  
-                    </table>
-
-                </div> -->
-
         <!-- Board and Score -->
-        <div class="col-6 left-partition">
+        <div class="col-10 left-partition">
           <div class="table-div">
             <!--  Chess Board -->
             <div id="boardContainer">
@@ -356,31 +274,22 @@
 
           <!-- Timer and Score -->
           <div class="row">
-            <!-- Turn Indicator -->
-            <div id="turnContainer" class="col-7">
-              <div class="row">
-                <!-- White Timer -->
-                <div class="col3">
-                  <div class="pieWhite degree">
-                    <!-- will be useful for display a dynamic pie fill -->
-                    <span class="block"></span>
-                    <span id="time">180</span>
-                  </div>
+           
+            <!-- Move History -->
+            <div class="col-6">
+              <!-- Move History-->
+              <div class="card" id="moveContainer">
+                <div class="card-header">
+                  Move History
                 </div>
-
-                <!-- Black Timer -->
-                <div class="col3">
-                  <div class="pieBlack degree">
-                    <!-- will be useful for display a dynamic pie fill -->
-                    <span class="block"></span>
-                    <span id="time">180</span>
-                  </div>
+                <div class="card-body">
+                  <div id="history-container"></div>
                 </div>
               </div>
             </div>
 
-            <!-- Score -->
-            <div id="scoreContainer" class="col-5">
+             <!-- Score -->
+             <div id="scoreContainer" class="col-6">
               <div class="card ">
                 <div class="card-header">
                   Score
@@ -389,21 +298,11 @@
                 <div class="card-body" id="score"></div>
               </div>
             </div>
+
           </div>
         </div>
 
-        <!-- Move History -->
-        <div class="col-2 offset-2 right-partition">
-          <!-- Move History-->
-          <div class="card" id="moveContainer">
-            <div class="card-header">
-              Move History
-            </div>
-            <div class="card-body">
-              <div id="history-container"></div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </body>

@@ -94,6 +94,9 @@ body {
 #gameControls {
   margin-left: 1%;
   margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #startGame,
@@ -124,6 +127,11 @@ body {
 
 #table td {
   pointer-events: "none";
+}
+
+.table-div {
+  display: flex;
+  justify-content: center;
 }
 
 #settings {
