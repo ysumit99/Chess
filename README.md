@@ -4,7 +4,7 @@
 
 >An awesome product is being built. Be Patient...
 
-<img src = "./images/chess-solid.svg" height = "200px" width = "200px">
+<img src = "./public/images/chess-solid.svg" height = "200px" width = "200px">
 
 ## About the App
 This app is built using ```JavaScript``` from Scratch. The idea behind creating this app was to implement JavaScript skills by building something which is non trivial and has a lot of challenges. Chess was the best option considering the amount of complexity it brings in terms of valid movement for pieces, updating the Game state in terms of board, score, timer etc. 
