@@ -1,33 +1,39 @@
 {
   "name": "chess",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A chess game in JavaScript",
-  "main": "index.html",
-  "directories": {
-    "test": "test"
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "test": "mocha || true"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ysumit99/Chess.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "keywords": [
-    "JavaScript",
-    "mocha",
-    "chai",
-    "jQuery",
-    "Node"
-  ],
-  "author": "Sumit Yadav",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ysumit99/Chess/issues"
-  },
-  "homepage": "https://github.com/ysumit99/Chess#readme",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.2.1"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
