@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal } from 'react-bootstrap';
 import './ChessBoard.css';
+import initialBoard from './initialBoard';
 
 import crownSolid from '../../images/crown-solid.svg';
 import startPlay from '../../images/startPlay.svg';
@@ -25,16 +26,17 @@ class ChessBoard extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
 
+        this.state = {
+            board: initialBoard
         };
         this.startGame = this.startGame.bind(this);
-        //this.closeModal = this.closeModal.bind(this);
+        console.log(this.state.board);
     }
 
 
     startGame() {
-        console.log('test');
+        console.log(this.state.board);
         document.querySelector('#boardContainer').style.filter = "none";
 
         //Cconfirm Game Modal Logic is pending
@@ -304,6 +306,7 @@ class ChessBoard extends Component {
 
                                 <div id="row8">
 
+
                                     <div className="black block" id="a1">
                                         <img src={chessRookWhite} alt="" />
                                     </div>
@@ -330,6 +333,8 @@ class ChessBoard extends Component {
                                     </div>
 
                                 </div>
+
+
                             </div>
                         </div>
 
