@@ -144,6 +144,17 @@ footer p {
   margin-bottom: 0;
 }
 
+#gameControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 992px) {
+  #gameControls {
+    flex-direction: column;
+  }
+}
 /* game control styles */
 
 .gameControl {
@@ -204,8 +215,8 @@ footer p {
 @media only screen and (min-width: 992px) {
   #boardContainer {
     border: 5px solid black;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-columns: 85px 85px 85px 85px 85px 85px 85px 85px;
+    grid-template-rows: 85px 85px 85px 85px 85px 85px 85px 85px;
     background-color: rgb(216, 197, 197);
     display: grid;
     box-sizing: content-box;
@@ -247,8 +258,8 @@ footer p {
   align-items: flex-end;
 
   img {
-    max-width: 75px;
-    max-height: 75px;
+    max-width: 60px;
+    max-height: 60px;
   }
 
   @media screen and (max-width: 991px) {
@@ -266,336 +277,3 @@ footer p {
 .black {
   background-color: grey;
 }
-
-/* Row 1 */
-
-#a8 {
-  left: 0vh;
-}
-
-#b8 {
-  left: 10vh;
-}
-
-#c8 {
-  left: 20vh;
-}
-
-#d8 {
-  left: 30vh;
-}
-
-#e8 {
-  left: 40vh;
-}
-
-#f8 {
-  left: 50vh;
-}
-
-#g8 {
-  left: 60vh;
-}
-
-#h8 {
-  left: 70vh;
-}
-
-/* Row 2 */
-#a7 {
-  left: 0vh;
-  top: 10vh;
-}
-
-#b7 {
-  left: 10vh;
-  top: 10vh;
-}
-
-#c7 {
-  left: 20vh;
-  top: 10vh;
-}
-
-#d7 {
-  left: 30vh;
-  top: 10vh;
-}
-
-#e7 {
-  left: 40vh;
-  top: 10vh;
-}
-
-#f7 {
-  left: 50vh;
-  top: 10vh;
-}
-
-#g7 {
-  left: 60vh;
-  top: 10vh;
-}
-
-#h7 {
-  left: 70vh;
-  top: 10vh;
-}
-
-/* Row 3 */
-
-#a6 {
-  left: 0vh;
-  top: 20vh;
-}
-
-#b6 {
-  left: 10vh;
-  top: 20vh;
-}
-
-#c6 {
-  left: 20vh;
-  top: 20vh;
-}
-
-#d6 {
-  left: 30vh;
-  top: 20vh;
-}
-
-#e6 {
-  left: 40vh;
-  top: 20vh;
-}
-
-#f6 {
-  left: 50vh;
-  top: 20vh;
-}
-
-#g6 {
-  left: 60vh;
-  top: 20vh;
-}
-
-#h6 {
-  left: 70vh;
-  top: 20vh;
-}
-/* End of Row 3 */
-
-/* Row 4 */
-
-#a5 {
-  left: 0vh;
-  top: 30vh;
-}
-
-#b5 {
-  left: 10vh;
-  top: 30vh;
-}
-
-#c5 {
-  left: 20vh;
-  top: 30vh;
-}
-
-#d5 {
-  left: 30vh;
-  top: 30vh;
-}
-
-#e5 {
-  left: 40vh;
-  top: 30vh;
-}
-
-#f5 {
-  left: 50vh;
-  top: 30vh;
-}
-
-#g5 {
-  left: 60vh;
-  top: 30vh;
-}
-
-#h5 {
-  left: 70vh;
-  top: 30vh;
-}
-/* End of Row 4 */
-
-/* Row 5 */
-
-#a4 {
-  left: 0vh;
-  top: 40vh;
-}
-
-#b4 {
-  left: 10vh;
-  top: 40vh;
-}
-
-#c4 {
-  left: 20vh;
-  top: 40vh;
-}
-
-#d4 {
-  left: 30vh;
-  top: 40vh;
-}
-
-#e4 {
-  left: 40vh;
-  top: 40vh;
-}
-
-#f4 {
-  left: 50vh;
-  top: 40vh;
-}
-
-#g4 {
-  left: 60vh;
-  top: 40vh;
-}
-
-#h4 {
-  left: 70vh;
-  top: 40vh;
-}
-/* End of Row 5 */
-
-/* Row 6 */
-
-#a3 {
-  left: 0vh;
-  top: 50vh;
-}
-
-#b3 {
-  left: 10vh;
-  top: 50vh;
-}
-
-#c3 {
-  left: 20vh;
-  top: 50vh;
-}
-
-#d3 {
-  left: 30vh;
-  top: 50vh;
-}
-
-#e3 {
-  left: 40vh;
-  top: 50vh;
-}
-
-#f3 {
-  left: 50vh;
-  top: 50vh;
-}
-
-#g3 {
-  left: 60vh;
-  top: 50vh;
-}
-
-#h3 {
-  left: 70vh;
-  top: 50vh;
-}
-/* End of Row 6 */
-
-/* Row 7 */
-
-#a2 {
-  left: 0vh;
-  top: 60vh;
-}
-
-#b2 {
-  left: 10vh;
-  top: 60vh;
-}
-
-#c2 {
-  left: 20vh;
-  top: 60vh;
-}
-
-#d2 {
-  left: 30vh;
-  top: 60vh;
-}
-
-#e2 {
-  left: 40vh;
-  top: 60vh;
-}
-
-#f2 {
-  left: 50vh;
-  top: 60vh;
-}
-
-#g2 {
-  left: 60vh;
-  top: 60vh;
-}
-
-#h2 {
-  left: 70vh;
-  top: 60vh;
-}
-/* End of Row 7 */
-
-/* Row 8 */
-
-#a1 {
-  left: 0vh;
-  top: 70vh;
-}
-
-#b1 {
-  left: 10vh;
-  top: 70vh;
-}
-
-#c1 {
-  left: 20vh;
-  top: 70vh;
-}
-
-#d1 {
-  left: 30vh;
-  top: 70vh;
-}
-
-#e1 {
-  left: 40vh;
-  top: 70vh;
-}
-
-#f1 {
-  left: 50vh;
-  top: 70vh;
-}
-
-#g1 {
-  left: 60vh;
-  top: 70vh;
-}
-
-#h1 {
-  left: 70vh;
-  top: 70vh;
-}
-/* End of Row 8 */

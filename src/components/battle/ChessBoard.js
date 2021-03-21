@@ -4,20 +4,19 @@ import './ChessBoard.css';
 import initialBoard from './initialBoard';
 import startPlay from '../../images/startPlay.svg';
 import restartGame from '../../images/restartGame.svg';
-import chessBishopBlack from '../../images/chess-bishop-black.svg';
-import chessBishopWhite from '../../images/chess-bishop-white.svg';
-import chessKingBlack from '../../images/chess-king-black.svg';
-import chessKingWhite from '../../images/chess-king-white.svg';
-import chessKnightBlack from '../../images/chess-knight-black.svg';
-import chessKnightWhite from '../../images/chess-knight-white.svg';
-import chessPawnBlack from '../../images/chess-pawn-black.svg';
-import chessPawnWhite from '../../images/chess-pawn-white.svg';
-import chessQueenBlack from '../../images/chess-queen-black.svg';
-import chessQueenWhite from '../../images/chess-queen-white.svg';
-import chessRookBlack from '../../images/chess-rook-black.svg';
-import chessRookWhite from '../../images/chess-rook-white.svg';
+import BishopBlack from '../../images/bishop-black.svg';
+import BishopWhite from '../../images/bishop-white.svg';
+import KingBlack from '../../images/king-black.svg';
+import KingWhite from '../../images/king-white.svg';
+import KnightBlack from '../../images/knight-black.svg';
+import KnightWhite from '../../images/knight-white.svg';
+import PawnBlack from '../../images/pawn-black.svg';
+import PawnWhite from '../../images/pawn-white.svg';
+import QueenBlack from '../../images/queen-black.svg';
+import QueenWhite from '../../images/queen-white.svg';
+import RookBlack from '../../images/rook-black.svg';
+import RookWhite from '../../images/rook-white.svg';
 
-//import chessSolid from '../../images/chess-solid.svg';
 
 class ChessBoard extends Component {
 
@@ -36,20 +35,7 @@ class ChessBoard extends Component {
         console.log(this.state.board);
         document.querySelector('#boardContainer').style.filter = "none";
 
-        //Cconfirm Game Modal Logic is pending
-        // document.querySelector('#confirmStartGame').classList.remove("hidden");
 
-        // document.querySelector('#confirmStartGame').addEventListener('click', function (e) {
-
-        //     //hide confirm start modal
-        //     //document.querySelector('#confirmStartGame').style.display = "none";
-
-        //     //reveal the board by removing the blur
-
-
-
-
-        // });
     }
 
     render() {
@@ -58,30 +44,25 @@ class ChessBoard extends Component {
                 <div className="row no-gutters my-2 my-lg-4">
 
                     {/* Game Controls */}
-                    <div className="col-12 col-lg-1">
+                    <div className="col-12 col-lg-1" id="gameControls">
 
-                        <div id="gameControls">
 
-                            <div id="startGame" className="startGame my-2 my-lg-4">
-                                <img
-                                    src={startPlay}
-                                    alt="startGame"
-                                    id="startButton"
-                                    className="gameControl"
-                                    onClick={this.startGame}
-                                />
-                            </div>
+                        <img
+                            src={startPlay}
+                            alt="startGame"
+                            id="startButton"
+                            className="gameControl mx-3 my-2 my-lg-4"
+                            onClick={this.startGame}
+                        />
 
-                            <div id="restartGame" className="startGame my-2 my-lg-4">
-                                <a href="/"
-                                ><img
-                                        src={restartGame}
-                                        id="restartButton"
-                                        className="gameControl"
-                                        alt="restartGame"
-                                    /></a>
-                            </div>
-                        </div>
+
+
+                        <img
+                            src={restartGame}
+                            id="restartButton"
+                            className="gameControl mx-3 my-2 my-lg-4"
+                            alt="restartGame"
+                        />
 
                     </div>
 
@@ -93,184 +74,60 @@ class ChessBoard extends Component {
                         <div id="chessBoard">
                             <div id="boardContainer">
 
-                                <div className="white block" id="a8">
-                                    <img src={chessRookBlack} alt="" />
-                                </div>
+                                {
+                                    this.state.board.map((tile) => {
 
-                                <div className="black block" id="b8">
-                                    <img src={chessKnightBlack} alt="" />
-                                </div>
+                                        let id = tile.id;
+                                        let color = tile.blockColor === "W" ? "white" : "black";
+                                        let piece = tile.piece;
+                                        let pieceClass = "XX";
+                                        switch (piece) {
+                                            case "WP":
+                                                pieceClass = PawnWhite;
+                                                break;
+                                            case "BP":
+                                                pieceClass = PawnBlack;
+                                                break;
+                                            case "WR":
+                                                pieceClass = RookWhite;
+                                                break;
+                                            case "BR":
+                                                pieceClass = RookBlack;
+                                                break;
+                                            case "WN":
+                                                pieceClass = KnightWhite;
+                                                break;
+                                            case "BN":
+                                                pieceClass = KnightBlack;
+                                                break;
+                                            case "WB":
+                                                pieceClass = BishopWhite;
+                                                break;
+                                            case "BB":
+                                                pieceClass = BishopBlack;
+                                                break;
+                                            case "WK":
+                                                pieceClass = KingWhite;
+                                                break;
+                                            case "BK":
+                                                pieceClass = KingBlack;
+                                                break;
+                                            case "WQ":
+                                                pieceClass = QueenWhite;
+                                                break;
+                                            case "BQ":
+                                                pieceClass = QueenBlack;
+                                                break;
+                                            default:
+                                                pieceClass = "XX";
 
-                                <div className="white block" id="c8">
-                                    <img src={chessBishopBlack} alt="" />
-                                </div>
+                                        }
 
-                                <div className="black block" id="d8">
-                                    <img src={chessQueenBlack} alt="" />
-                                </div>
-
-                                <div className="white block" id="e8">
-                                    <img src={chessKingBlack} alt="" />
-                                </div>
-
-                                <div className="black block" id="f8">
-                                    <img src={chessBishopBlack} alt="" />
-                                </div>
-
-                                <div className="white block" id="g8">
-                                    <img src={chessKnightBlack} alt="" />
-                                </div>
-
-                                <div className="black block" id="h8">
-                                    <img src={chessRookBlack} alt="" />
-                                </div>
-                                {/* </div>
-
-                            <div id="row2"> */}
-                                <div className="black block" id="a7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="white block" id="b7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="black block" id="c7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="white block" id="d7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="black block" id="e7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="white block" id="f7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="black block" id="g7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-
-                                <div className="white block" id="h7">
-                                    <img src={chessPawnBlack} alt="" />
-                                </div>
-                                {/* </div>
-
-                            <div id="row3"> */}
-
-                                <div className="white block" id="a6"></div>
-                                <div className="black block" id="b6"></div>
-                                <div className="white block" id="c6"></div>
-                                <div className="black block" id="d6"></div>
-                                <div className="white block" id="e6"></div>
-                                <div className="black block" id="f6"></div>
-                                <div className="white block" id="g6"></div>
-                                <div className="black block" id="h6"></div>
-
-                                {/* </div>
-
-                            <div id="row4"> */}
-
-                                <div className="black block" id="a5"></div>
-                                <div className="white block" id="b5"></div>
-                                <div className="black block" id="c5"></div>
-                                <div className="white block" id="d5"></div>
-                                <div className="black block" id="e5"></div>
-                                <div className="white block" id="f5"></div>
-                                <div className="black block" id="g5"></div>
-                                <div className="white block" id="h5"></div>
-                                {/* 
-                            </div>
-
-                            <div id="row5"> */}
-
-                                <div className="white block" id="a4"></div>
-                                <div className="black block" id="b4"></div>
-                                <div className="white block" id="c4"></div>
-                                <div className="black block" id="d4"></div>
-                                <div className="white block" id="e4"></div>
-                                <div className="black block" id="f4"></div>
-                                <div className="white block" id="g4"></div>
-                                <div className="black block" id="h4"></div>
-
-                                {/* </div>
-
-                            <div id="row6"> */}
-
-                                <div className="black block" id="a3"></div>
-                                <div className="white block" id="b3"></div>
-                                <div className="black block" id="c3"></div>
-                                <div className="white block" id="d3"></div>
-                                <div className="black block" id="e3"></div>
-                                <div className="white block" id="f3"></div>
-                                <div className="black block" id="g3"></div>
-                                <div className="white block" id="h3"></div>
-
-                                {/* </div>
-
-                            <div id="row7"> */}
-
-                                <div className="white block" id="a2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="black block" id="b2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="white block" id="c2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="black block" id="d2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="white block" id="e2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="black block" id="f2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="white block" id="g2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                <div className="black block" id="h2">
-                                    <img src={chessPawnWhite} alt="" />
-                                </div>
-                                {/* 
-                        </div>
-
-                        <div id="row8"> */}
-
-
-                                <div className="black block" id="a1">
-                                    <img src={chessRookWhite} alt="" />
-                                </div>
-                                <div className="white block" id="b1">
-                                    <img src={chessKnightWhite} alt="" />
-                                </div>
-                                <div className="black block" id="c1">
-                                    <img src={chessBishopWhite} alt="" />
-                                </div>
-                                <div className="white block" id="d1">
-                                    <img src={chessQueenWhite} alt="" />
-                                </div>
-                                <div className="black block" id="e1">
-                                    <img src={chessKingWhite} alt="" />
-                                </div>
-                                <div className="white block" id="f1">
-                                    <img src={chessBishopWhite} alt="" />
-                                </div>
-                                <div className="black block" id="g1">
-                                    <img src={chessKnightWhite} alt="" />
-                                </div>
-                                <div className="white block" id="h1">
-                                    <img src={chessRookWhite} alt="" />
-                                </div>
-
-                                {/* </div> */}
-
+                                        return (<div className={`block ${color}`} id={id} key={id}>
+                                            {!(piece === "XX") ? <img src={pieceClass} alt="" /> : ""}
+                                        </div>);
+                                    })
+                                }
 
                             </div>
                         </div>
