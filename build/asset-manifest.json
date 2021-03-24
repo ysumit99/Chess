@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4ab381b8.chunk.css",
+    "main.js": "/static/js/main.34263e7d.chunk.js",
+    "main.js.map": "/static/js/main.34263e7d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.25c01385.js",
+    "runtime-main.js.map": "/static/js/runtime-main.25c01385.js.map",
+    "static/css/2.325dfaf0.chunk.css": "/static/css/2.325dfaf0.chunk.css",
+    "static/js/2.268e3cf8.chunk.js": "/static/js/2.268e3cf8.chunk.js",
+    "static/js/2.268e3cf8.chunk.js.map": "/static/js/2.268e3cf8.chunk.js.map",
+    "static/js/3.065c2fd5.chunk.js": "/static/js/3.065c2fd5.chunk.js",
+    "static/js/3.065c2fd5.chunk.js.map": "/static/js/3.065c2fd5.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.325dfaf0.chunk.css.map": "/static/css/2.325dfaf0.chunk.css.map",
+    "static/css/main.4ab381b8.chunk.css.map": "/static/css/main.4ab381b8.chunk.css.map",
+    "static/js/2.268e3cf8.chunk.js.LICENSE.txt": "/static/js/2.268e3cf8.chunk.js.LICENSE.txt",
+    "static/js/main.34263e7d.chunk.js.LICENSE.txt": "/static/js/main.34263e7d.chunk.js.LICENSE.txt",
+    "static/media/bishop-black.c1194bc8.svg": "/static/media/bishop-black.c1194bc8.svg",
+    "static/media/bishop-white.2f8ae726.svg": "/static/media/bishop-white.2f8ae726.svg",
+    "static/media/king-black.bc7e212d.svg": "/static/media/king-black.bc7e212d.svg",
+    "static/media/king-white.585f9af3.svg": "/static/media/king-white.585f9af3.svg",
+    "static/media/knight-black.1ed3a85a.svg": "/static/media/knight-black.1ed3a85a.svg",
+    "static/media/knight-white.ce699e48.svg": "/static/media/knight-white.ce699e48.svg",
+    "static/media/pawn-black.6c81f4df.svg": "/static/media/pawn-black.6c81f4df.svg",
+    "static/media/pawn-white.88d914f9.svg": "/static/media/pawn-white.88d914f9.svg",
+    "static/media/queen-black.fe1c52ab.svg": "/static/media/queen-black.fe1c52ab.svg",
+    "static/media/queen-white.263b3df4.svg": "/static/media/queen-white.263b3df4.svg",
+    "static/media/restartGame.6615ffb7.svg": "/static/media/restartGame.6615ffb7.svg",
+    "static/media/rook-black.fc65950f.svg": "/static/media/rook-black.fc65950f.svg",
+    "static/media/rook-white.ea8c578b.svg": "/static/media/rook-white.ea8c578b.svg",
+    "static/media/startPlay.0e6eade3.svg": "/static/media/startPlay.0e6eade3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25c01385.js",
+    "static/css/2.325dfaf0.chunk.css",
+    "static/js/2.268e3cf8.chunk.js",
+    "static/css/main.4ab381b8.chunk.css",
+    "static/js/main.34263e7d.chunk.js"
+  ]
+}
