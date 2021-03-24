@@ -139,7 +139,7 @@ let getRank = (rowIndex) => {
 /* get file for ColIndex */
 let getFile = (colIndex) => {
 
-    console.log("colIndex in getFile function => " + colIndex);
+    //console.log("colIndex in getFile function => " + colIndex);
 
     let file = "";
 

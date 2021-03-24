@@ -177,10 +177,56 @@ class ChessBoard extends Component {
                 colIndex: destinationTileColIndex
             };
 
+            if (tileColor === "red") {
+
+                this.updateScore(this.state.board[destinationTileRowIndex][destinationTileColIndex]);
+            }
+
+            let historyPiece = this.state.board[sourceTileRowIndex][sourceTileColIndex][1] === "P" ? "" : this.state.board[sourceTileRowIndex][sourceTileColIndex][1];
+            this.updateMoveHistory(destinationTile, historyPiece);
             this.updateBoard(initialTile, finalTile);
 
+
+            this.resetHighLight();
+            let currentMoveCount = this.state.moveCount;
+            this.setState({ 'moveCount': ++currentMoveCount });
+
+
+
+        } else if (tileStatus == "selectedTile") {/* toggle selected tile */
             this.resetHighLight();
         }
+    }
+
+    updateScore = (piece) => {
+        console.log("captured piece: " + piece);
+        let scorePiece = this.state.moveCount % 2 === 0 ? "white" : "black";
+
+        switch (piece[1]) {
+            case "P":
+                this.state.score[scorePiece] += 1;
+                break;
+            case "N":
+                this.state.score[scorePiece] += 3;
+                break;
+            case "B":
+                this.state.score[scorePiece] += 3;
+                break;
+            case "R":
+                this.state.score[scorePiece] += 5;
+                break;
+            case "Q":
+                this.state.score[scorePiece] += 9;
+                break;
+            case "K":
+                this.state.score[scorePiece] += 10;
+                break;
+            default:
+                this.state.score[scorePiece] += 0;
+
+
+        }
+
     }
 
     getTileStatus(tile) {
@@ -338,6 +384,17 @@ class ChessBoard extends Component {
         console.log("==========end of updateBoard function ==================");
 
         return;
+    }
+
+    updateMoveHistory = (tile, piece) => {
+
+
+
+        if (this.state.moveCount % 2 == 0)
+            document.getElementById('history-container').innerHTML += `<span class="badge badge-pill badge-light">${piece + tile}</span> : `;
+        else
+            document.getElementById('history-container').innerHTML += `<span class="badge badge-pill badge-dark">${piece + tile}</span><br />`;
+
     }
 
 
@@ -1248,7 +1305,7 @@ class ChessBoard extends Component {
                                                 let piece = tile;
                                                 let pieceClass = "XX";
 
-                                                console.log(`id = ${id} color = ${color} piece = ${piece} pieceClass = ${pieceClass} tileCounter ${tileCounter}`);
+                                                //console.log(`id = ${id} color = ${color} piece = ${piece} pieceClass = ${pieceClass} tileCounter ${tileCounter}`);
                                                 tileCounter = tileCounter === 0 ? 1 : 0;
                                                 switch (piece) {
                                                     case "WP":
@@ -1318,7 +1375,9 @@ class ChessBoard extends Component {
                                         Move History
                                     </div>
                                     <div className="card-body">
-                                        <div id="history-container"></div>
+                                        <div id="history-container">
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1330,7 +1389,9 @@ class ChessBoard extends Component {
                                         Score
                                     </div>
 
-                                    <div className="card-body" id="score"></div>
+                                    <div className="card-body" id="score">
+                                        White: {this.state.score.white} | Black: {this.state.score.black}
+                                    </div>
                                 </div>
                             </div>
 
