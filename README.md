@@ -2,27 +2,28 @@
 
 ## Let your Mind work!
 
-<img src = "./images/chess-solid.svg" height = "200px" width = "200px">
+<img src = "./public/chess-solid.svg" height = "200px" width = "200px">
 
 ## About the App
-This app is built using ```JavaScript``` from Scratch. The idea behind creating this app was to implement JavaScript skills by building something which is non trivial and has a lot of challenges. Chess was the best option considering the amount of complexity it brings in terms of valid movement for pieces, updating the Game state.
 
-The performance aspect also comes into play when determining valid tiles for a piece. 
-## Note: 
-*To best view the app, use modern web browsers like chrome/firefox on a desktop*
+This app is built using React. The idea behind creating this app was to implement JavaScript skills by building something which is non trivial and has a lot of challenges. Chess was the best option considering the amount of complexity it brings in terms of valid movement for pieces, updating the Game state.
+
+The performance aspect also comes into play when determining valid tiles for a piece.
+
+## Note:
+
+_To best view the app, use modern web browsers like chrome/firefox on a desktop_
 
 ## Deployed Application
 
-[Deployed App](https://compassionate-shirley-1ed3ee.netlify.com) 
+[Deployed App](https://chessreact.netlify.app/)
 
 ## Usage
 
-1. Clone the repository 
+1.  Clone the repository
 
-		git clone URL
+        git clone URL
 
-2. `cd` into the repository folder
+2.  git branch "feature-battle"
 
-3. Open the project using any text-editor (preferably VSCode!). Launch the project using live-Server extension(In case of VSCode) or simply open `index.html` using any modern web-browser.
-
-
+3.  npm start
