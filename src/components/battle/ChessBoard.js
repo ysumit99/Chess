@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import './ChessBoard.css';
 import initialBoard from './initialBoard';
-import startPlay from '../../images/startPlay.svg';
-import restartGame from '../../images/restartGame.svg';
 import BishopBlack from '../../images/bishop-black.svg';
 import BishopWhite from '../../images/bishop-white.svg';
 import KingBlack from '../../images/king-black.svg';
@@ -1264,32 +1263,9 @@ class ChessBoard extends Component {
             <div className="container-fluid" id="mainContainer">
                 <div className="row no-gutters my-2 my-lg-4">
 
-                    {/* Game Controls */}
-                    <div className="col-12 col-lg-1" id="gameControls">
-
-
-                        <img
-                            src={startPlay}
-                            alt="startGame"
-                            id="startButton"
-                            className="gameControl mx-3 my-2 my-lg-4"
-                            onClick={this.startGame}
-                        />
-
-
-
-                        <img
-                            src={restartGame}
-                            id="restartButton"
-                            className="gameControl mx-3 my-2 my-lg-4"
-                            alt="restartGame"
-                        />
-
-                    </div>
-
                     {/* Board and Score */}
 
-                    <div className="col-12 col-lg-10">
+                    <div className="col-12">
 
                         {/*  Chess Board */}
                         <div id="chessBoard">

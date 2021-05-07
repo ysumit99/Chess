@@ -31,4 +31,10 @@
   -webkit-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
   -moz-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
 }
+
+@media only screen and (max-width: 767px) {
+  .Home .chessBoard {
+    max-width: 300px;
+  }
+}
 /*# sourceMappingURL=Home.css.map */
