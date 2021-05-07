@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,WAAW;CACxB",
     "sources": [
         "Nav.scss"
     ],

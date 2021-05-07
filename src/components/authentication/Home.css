@@ -1,0 +1,34 @@
+.Home {
+  background-color: #d3bb85;
+  height: 100vh;
+}
+
+.Home .chessBoard {
+  max-width: 450px;
+  border-radius: 10px;
+}
+
+.Home .header {
+  font-size: 56px;
+  color: white;
+  font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.Home .playBtn {
+  background: #5d8b18;
+  border-radius: 10px;
+}
+
+.Home .playBtn a {
+  text-decoration: none;
+  color: white;
+}
+
+.Home .playBtn:hover {
+  background: #afcc83;
+  box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+  -webkit-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+  -moz-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+}
+/*# sourceMappingURL=Home.css.map */

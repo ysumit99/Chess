@@ -6,11 +6,11 @@
 }
 
 .white {
-  background-color: white;
+  background-color: #efeed2;
 }
 
 .black {
-  background-color: grey;
+  background-color: #759755;
 }
 
 #board {
@@ -299,13 +299,5 @@ footer p {
     max-width: 35px;
     max-height: 35px;
   }
-}
-
-.white {
-  background-color: white;
-}
-
-.black {
-  background-color: grey;
 }
 /*# sourceMappingURL=ChessBoard.css.map */
