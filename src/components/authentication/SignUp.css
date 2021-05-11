@@ -1,1 +1,88 @@
-/* No CSS *//*# sourceMappingURL=SignUp.css.map */
+body {
+  background-color: #d3bb85 !important;
+}
+
+.signupContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .signupContainer {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .signupContainer {
+    max-width: 400px;
+  }
+}
+
+.signupContainer .signupBox {
+  background: white;
+  border-radius: 10px;
+  height: 400px;
+  max-height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.signupContainer .signupBox .forgotText {
+  color: #726c6c;
+  font-size: 14px;
+}
+
+.signupContainer .signupBox .signupBtn {
+  font-weight: 900;
+  background: #5d8b18;
+  border-radius: 10px;
+}
+
+.signupContainer .signupBox .signupBtn:hover {
+  background: #afcc83;
+  box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+  -webkit-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+  -moz-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+}
+
+.signupContainer .signupBox .loginDiv {
+  background: #f6f5f5;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/*# sourceMappingURL=SignUp.css.map */

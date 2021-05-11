@@ -22,8 +22,7 @@ class Nav extends Component {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav align-items-start">
                         <a class="nav-link active" href="#"><Link to="/play">Play <span class="sr-only">(current)</span></Link></a>
-                        <a class="nav-link float-right" href="#">Learn</a>
-                        <a class="nav-link" href="#">Sign Up</a>
+                        <a class="nav-link" href="#"><Link to="/signup">Sign Up</Link></a>
                         <a class="nav-link" href="#"><Link to="/login">Login</Link></a>
 
 

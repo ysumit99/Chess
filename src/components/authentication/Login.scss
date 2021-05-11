@@ -1,3 +1,57 @@
-.Login {
-  background: red;
+body {
+  background-color: #d3bb85 !important;
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  @media only screen and (max-width: 767px) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 400px;
+  }
+
+  .loginBox {
+    background: white;
+    border-radius: 10px;
+    height: 400px;
+    max-height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .forgotText {
+      color: #726c6c;
+      font-size: 14px;
+    }
+
+    .loginBtn {
+      font-weight: 900;
+      background: #5d8b18;
+      border-radius: 10px;
+
+      &:hover {
+        background: #afcc83;
+        box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+        -webkit-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+        -moz-box-shadow: 12px 11px 12px 2px rgba(21, 21, 21, 0.75);
+      }
+    }
+
+    .signupDiv {
+      background: #f6f5f5;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
 }
